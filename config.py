@@ -3,7 +3,7 @@
 DEBUG=True
 SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost/New'
 SECRET_KEY="!@#lionlemon#@!"
-PORT="5000"
+PORT=5000
 HOST="localhost"
 
 '''
