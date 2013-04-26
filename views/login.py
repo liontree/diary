@@ -14,8 +14,8 @@ def login():
     elif request.method == 'POST':
         email = request.form['email'].strip()
         password = request.form['password'].strip()
-        login_result = LoginForm(email=email, password=password).checkValid()
-        if login_result == True:
+        login_result = LoginForm(email, password).checkValid()
+        if login_result.is_success is True:
             user = User().query_by_email(email)
             if user.email is None:
                 flash(u'Your email has not been registered.')
@@ -25,6 +25,6 @@ def login():
                 else:
                     return redirect('http://www.douban.com')
         else:
-            flash(login_result.message)
+            flash(login_result.info)
     else:
         return redirect(url_for('login'))
