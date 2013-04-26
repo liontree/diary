@@ -20,6 +20,3 @@ class User(db.Model):
         user = User.query.filter_by(email=email).first()
         return user
 
-    def query_by_pw(self,password):
-        user = User.query.filter_by(password=password).first()
-        return user
