@@ -7,14 +7,14 @@ from diary.models.user_models import User
 from diary.forms.loginform import LoginForm
 
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
         return render_template('login.html')
     elif request.method == 'POST':
         email = request.form['email'].strip()
         password = request.form['password'].strip()
-        login_result = LoginForm(email, password).checkValid()
+        login_result = LoginForm(email=email, password=password).checkValid()
         if login_result.is_success is True:
             user = User().query_by_email(email)
             if user.email is None:
@@ -23,7 +23,7 @@ def login():
                 if user.password != password:
                     flash(u'password does not match')
                 else:
-                    return redirect('http://www.douban.com')
+                    return redirect(url_for('index'))
         else:
             flash(login_result.info)
     else:

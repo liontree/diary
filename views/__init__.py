@@ -3,3 +3,4 @@ from diary import config
 
 import index
 import login
+import notes

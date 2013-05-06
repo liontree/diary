@@ -8,7 +8,8 @@ class User(db.Model):
     id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
     email = db.Column('email', db.String(64), nullable=False )
     password = db.Column('password', db.String(16), nullable=False)
-
+    username = db.Column('username', db.String(16), nullable=False)
+    
     def __inti__(self,email,password):
         self.email = email
         self.password = password

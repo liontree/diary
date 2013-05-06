@@ -10,7 +10,7 @@ class LoginForm:
 
     def checkValid(self):
         if self.email == '':
-            return LoginValid(False, "email can not be empty")
+            return LoginValid(False, "请输入正确的邮箱/手机号")
         if self.password == '':
-            return LoginValid(False, "password can not be empty")
+            return LoginValid(False, "请输入密码")
         return LoginValid(True, '')
