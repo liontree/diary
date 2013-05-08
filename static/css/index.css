@@ -1,0 +1,110 @@
+body {
+    background-image:url('../img/lemonlogo1.gif');
+    background-repeat:no-repeat;                                                                                                   
+    background-position:100% 60%; 
+}
+
+
+.signupButton {
+
+-moz-box-shadow:inset 0px 1px 0px 0px #a4e271;
+-webkit-box-shadow:inset 0px 1px 0px 0px #a4e271;
+box-shadow:inset 0px 1px 0px 0px #a4e271;
+
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #89c403), color-stop(1, #77a809));
+background:-moz-linear-gradient(top, #89c403 5%, #77a809 100%);
+background:-webkit-linear-gradient(top, #89c403 5%, #77a809 100%);
+background:-o-linear-gradient(top, #89c403 5%, #77a809 100%);
+background:-ms-linear-gradient(top, #89c403 5%, #77a809 100%);
+background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#89c403', endColorstr='#77a809',GradientType=0);
+
+background-color:#89c403;
+
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+border-radius:6px;
+
+border:1px solid #74b807;
+
+display:inline-block;
+color:#ffffff;
+font-family:arial;
+font-size:15px;
+font-weight:bold;
+padding:8px 19px;
+text-decoration:none;
+
+text-shadow:0px 1px 0px #528009;
+
+}
+.signupButton:hover {
+
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77a809), color-stop(1, #89c403));
+background:-moz-linear-gradient(top, #77a809 5%, #89c403 100%);
+background:-webkit-linear-gradient(top, #77a809 5%, #89c403 100%);
+background:-o-linear-gradient(top, #77a809 5%, #89c403 100%);
+background:-ms-linear-gradient(top, #77a809 5%, #89c403 100%);
+background:linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809', endColorstr='#89c403',GradientType=0);
+
+background-color:#77a809;
+}
+.signupButton:active {
+position:relative;
+top:1px;
+}
+
+
+
+.signinButton {
+
+-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+box-shadow:inset 0px 1px 0px 0px #ffffff;
+
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+
+background-color:#ededed;
+
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+border-radius:6px;
+
+border:1px solid #dcdcdc;
+
+display:inline-block;
+color:#777777;
+font-family:arial;
+font-size:15px;
+font-weight:bold;
+padding:8px 17px;
+text-decoration:none;
+
+text-shadow:0px 1px 0px #ffffff;
+
+}
+.signinButton:hover {
+
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+
+background-color:#dfdfdf;
+}
+.signinButton:active {
+position:relative;
+top:1px;
+}
+
+

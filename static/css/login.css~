@@ -239,6 +239,24 @@ top:1px;
 .item-captcha .pl {
     color: #666666;
 }
+.btn-submit {
+    background: none repeat scroll 0 0 #3FA156;
+    border: 1px solid #528641;
+    border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 26px;
+}
+.btn-submit:hover {
+    background-color: #4FCA6C;
+    border-color: #6AAD54;
+}
+.btn-submit:active {
+    background-color: #3FA156;
+    border-color: #528641;
+}
 #item-error {
     padding-left: 75px;
 }

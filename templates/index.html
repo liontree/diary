@@ -1,10 +1,17 @@
 <!doctype html>
-<title>Hello flask</title>
-{% if name %}
-<h2>welcome {{ name }} !</h2>
-<a href='/'>logout</a>
-{% else %}
-<h2>welcome to diray space !</h2>
-<a href='#'>sign up for free</a><br/>
-<a href='login'>login</a>
-{% endif %}
+<html>
+    <head>
+        <title>主人睡觉了</title>
+    </head>
+    <body>
+        <link type="text/css" rel="stylesheet" media="screen" href="../static/css/index.css" />
+        {% if name %}
+        <h2>welcome {{ name }} !</h2>
+        <a href='/'>logout</a>
+        {% else %}  
+        <h2>welcome to diray space !</h2>
+        <a href='#' class="signupButton"> sign up for free</a>
+        <a href='login' class="signinButton" >login</a>
+        {% endif %}
+    </body>
+</html>
