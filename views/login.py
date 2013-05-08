@@ -2,7 +2,7 @@
 # -*-coding:utf-8-*-
 
 from diary import app
-from flask import render_template, request, flash, redirect
+from flask import render_template, request, flash, redirect, url_for
 from diary.models.user_models import User
 from diary.forms.loginform import LoginForm
 
@@ -17,14 +17,14 @@ def login():
         login_result = LoginForm(email=email, password=password).checkValid()
         if login_result.is_success is True:
             user = User().query_by_email(email)
-            if user.email is None:
+            if user is None:
                 flash(u'Your email has not been registered.')
             else:
                 if user.password != password:
                     flash(u'password does not match')
                 else:
-                    return redirect(url_for('index'))
+                    return redirect(url_for('index',name=user.username))
         else:
-            flash(login_result.info)
+            return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))

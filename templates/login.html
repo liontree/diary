@@ -15,16 +15,16 @@
             <div id="content">
                 <h1>欢迎登录</h1>
                 <div class="article">
-                    <form id="lzform" name="lzform" method="post" action="#" onsubmit="return validateForm(this);">
+                    <form id="lzform" name="lzform" method="post" action="" onsubmit="return validateForm(this);">
                         <input name="source" value="simple" type="hidden">
                         <input name="redir" value="http://www.douban.com" type="hidden">
                         <div class="item">
                             <label>帐号</label>
-                            <input style="color: rgb(204, 204, 204);" id="email" name="form_email" class="basic-input" maxlength="60" value="邮箱/手机号" tabindex="1" type="text">
+                            <input style="color: rgb(204, 204, 204);" id="email" name="email" class="basic-input" maxlength="60" value="邮箱/手机号" tabindex="1" type="text">
                         </div>
                         <div class="item">
                             <label>密码</label>
-                            <input id="password" name="form_password" class="basic-input" maxlength="20" tabindex="2" type="password">
+                            <input id="password" name="password" class="basic-input" maxlength="20" tabindex="2" type="password">
                         </div>
                         <div class="item">
                             <label>&nbsp;</label>
@@ -92,8 +92,8 @@
 
                     function validateForm(frm) {
                         var error = 0,
-                        account = frm.elements['form_email'],
-                        passwd = frm.elements['form_password'],
+                        account = frm.elements['email'],
+                        passwd = frm.elements['password'],
                         defaultError = document.getElementById('item-error');
 
                         account_value = trim(account.value);
