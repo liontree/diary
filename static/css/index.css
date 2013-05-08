@@ -1,7 +1,60 @@
 body {
-    background-image:url('../img/lemonlogo1.gif');
+    background-color: #FFFFFF;
+    color: #333333;
+    background-image:url('../img/new_back.gif');
     background-repeat:no-repeat;                                                                                                   
-    background-position:100% 60%; 
+    background-position:100% 0%; 
+}
+body, input, select, textarea, button {
+    font: 13px/1.4 Helvetica,arial,freesans,clean,sans-serif;
+}
+html, body {
+    height: 100%;
+    min-width: 960px;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    height: auto !important;
+    margin: 0 0 -268px;
+    min-height: 100%;
+}
+.header {
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.marketing .header-logged-out {
+    background: none repeat scroll 0 0 transparent;
+}
+.header-logged-out {
+    padding: 10px 0;
+}
+.container {
+    margin: 0 auto;
+    width: 920px;
+}
+.clearfix {
+    display: block;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.header-logo-wordmark {
+    float: left;
+    margin: 9px 10px 9px 0;
+    position: relative;
+}
+.sign {
+    position:absolute;
+    left:600px;
+    top:20px
 }
 
 
@@ -36,7 +89,9 @@ padding:8px 19px;
 text-decoration:none;
 
 text-shadow:0px 1px 0px #528009;
-
+float:left;
+position:relative;
+left:100px;
 }
 .signupButton:hover {
 
@@ -88,7 +143,9 @@ padding:8px 17px;
 text-decoration:none;
 
 text-shadow:0px 1px 0px #ffffff;
-
+float:left;
+position:relative;
+left:120px;
 }
 .signinButton:hover {
 

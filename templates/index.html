@@ -5,13 +5,18 @@
     </head>
     <body>
         <link type="text/css" rel="stylesheet" media="screen" href="../static/css/index.css" />
-        {% if name %}
-        <h2>welcome {{ name }} !</h2>
-        <a href='/'>logout</a>
-        {% else %}  
-        <h2>welcome to diray space !</h2>
-        <a href='#' class="signupButton"> sign up for free</a>
-        <a href='login' class="signinButton" >login</a>
-        {% endif %}
+        <div id="wrapper">
+            <div class="header header-logged-out">
+                <div class="container clearfix">
+                    {% if name %}
+                    <h2>welcome {{ name }} !</h2>
+                    <a href='/'>logout</a>
+                    {% else %}
+                    <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/title1.png"/></a>
+                    <a href='#' class="signupButton"> sign up for free</a>
+                    <a href='login' class="signinButton" >login</a>
+            </div>
+            {% endif %}
+        </div>
     </body>
 </html>
