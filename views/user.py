@@ -28,3 +28,7 @@ def login():
             return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
+
+@app.route('/logout')
+def logout():
+    return render_template('index.html')
