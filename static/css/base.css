@@ -35,6 +35,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .container {
     margin: 0 auto;
     width: 920px;
+
 }
 .clearfix {
     display: block;
@@ -85,13 +86,13 @@ color:#ffffff;
 font-family:arial;
 font-size:15px;
 font-weight:bold;
-padding:8px 19px;
+padding:7px 19px;
 text-decoration:none;
 
 text-shadow:0px 1px 0px #528009;
 float:left;
 position:relative;
-left:100px;
+left:120px;
 }
 .signupButton:hover {
 
@@ -139,13 +140,13 @@ color:#777777;
 font-family:arial;
 font-size:15px;
 font-weight:bold;
-padding:8px 17px;
+padding:7px 17px;
 text-decoration:none;
 
 text-shadow:0px 1px 0px #ffffff;
 float:left;
 position:relative;
-left:120px;
+left:135px;
 }
 .signinButton:hover {
 
@@ -171,19 +172,23 @@ top:1px;
 
 .begintaste {
     width:100%;
-    height:30px;
+    height:28px;
     background-color:#C9F76F;
-    margin:80px 0 0 0;
+    margin:75px 0 0 0;
 }
 .about {
     width:100%;
     height:5px;
     background-color:#2F8F00;
-    margin:150px 0 20px 0;
+    margin:150px 0 25px 0;
 }
-#footer-push {
-    clear: both;
-    height: 268px;
+#footer {
+    color: #777777;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 40px 0 0;
+    position: relative;
+    text-shadow: 0 1px 0 #FFFFFF;
 }
 #footer .container {
     border-top: 1px solid #EEEEEE;
@@ -193,4 +198,53 @@ top:1px;
     float: left;
     margin-bottom: 20px;
     width: 20%;
+}
+.footer_nav dt {
+    color: #52595D;
+    font-weight: bold;
+}
+.footer_nav a {
+    color: #4183C4;
+    text-decoration: none;
+}
+.footer_nav a:hover {
+    color:#FF8700;
+    text-decoration: none;
+}
+.footer-divider {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #EEEEEE -moz-use-text-color -moz-use-
+    border-image: none;
+    border-right: 0 none;
+    border-style: solid none none;
+    border-width: 1px 0 0;
+    margin: 0 0 20px;
+}
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 transparent;
+    border-color: -moz-use-text-color -moz-use-text-color #DDDDDD;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    color:#EEEEEE;
+    clear: both;
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+}
+#footer .right {
+    margin: 0;
+}
+.right {
+    float: right;
+}
+.right p {
+    margin: 1em 0;
 }

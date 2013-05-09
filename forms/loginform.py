@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*-coding:utf-8-*-
 
-from diary.Info.loginInfo import LoginValid
+from lemondiary.Info.loginInfo import LoginValid
 
 class LoginForm:
     def __init__(self, email, password):

@@ -2,7 +2,7 @@
 # -*-coding:utf-8-*-
 
 from flask.ext.sqlalchemy import SQLAlchemy
-from diary import app
+from lemondiary import app
 
 db = SQLAlchemy(app)
 def create_app():

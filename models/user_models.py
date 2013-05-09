@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*-coding:utf-8-*-
 
-from diary.initdb import db, create_app
+from lemondiary.initdb import db, create_app
 
 class User(db.Model):
     __tablename__ = 'account'
