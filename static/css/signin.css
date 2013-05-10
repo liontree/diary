@@ -5,8 +5,8 @@
     margin-bottom: 40px;
 }
 #header {
-    width:950px;
-    margin:30px auto;
+    width:920px;
+    margin:8px auto 9px auto;
 }
 #content {
     width:950px;
@@ -14,7 +14,7 @@
 }
 .header-logo-wordmark {
     float: left;
-    margin: 9px 10px 9px 0;
+    margin: 9px 10px 9px 10px;
     position: relative;
 }
 .article {

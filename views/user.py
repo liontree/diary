@@ -7,8 +7,8 @@ from lemondiary.models.user_models import User
 from lemondiary.forms.loginform import LoginForm
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/signin', methods=['GET', 'POST'])
+def signin():
     if request.method == 'GET':
         return render_template('signin.html')
     elif request.method == 'POST':

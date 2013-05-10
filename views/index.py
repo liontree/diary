@@ -6,5 +6,5 @@ from flask import render_template, flash
 
 @app.route('/')
 @app.route('/people/<name>')
-def index(name=None):
+def base(name=None):
     return render_template('base.html',name=name)
