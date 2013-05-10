@@ -8,3 +8,7 @@ from flask import render_template, flash
 @app.route('/people/<name>')
 def base(name=None):
     return render_template('base.html',name=name)
+
+@app.route('/about/aboutme')
+def aboutme():
+    return render_template('aboutme.html')

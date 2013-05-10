@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}注册{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link type="text/css" rel="stylesheet" media="screen" href="../static/css/register.css"/>
+{% endblock %}
+{% block header %}
+<div id="header">
+    <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/register_mini.png"/></a>
+</div>
+{% endblock %}
+{% block content %}
+<div id="content">
+    <p style="font-size:24px;">欢迎加入</p>
+    <div class="article">
+        <form id="lzform" name="lzform" method="post" action="" onsubmit="return validateForm(this);">
+            <div class="item">
+                <label>帐号</label>
+                <input style="color: rgb(204, 204, 204);" id="email" name="email" class="basic-input" maxlength="64" value="邮箱/手机号" tabindex="1" type="text"/>
+            </div>
+            <div class="item">
+                <label>密码</label>
+                <input id="password" name="password" class="basic-input" maxlength="16" tabindex="2" type="password"/>
+            </div>
+            <div class="item">
+                <label>名号</label>
+                <input id="username" name="username" class="basic-input" maxlength="16" tabindex="3" type="text"/>
+            </div>
+            <div class="suggestion">
+                <span class="tips">起个霸气的名号吧</span>
+            </div>
+            <div class="item">
+                <p class="agreement">
+                <label class="agreement-label" for="agreement">
+                    <input id="agreement" type="checkbox" tabindex="5" name="form_agreement">
+                    我已经认真阅读并同意柠檬的《
+                    <a href="" target="_blank">使用协议</a>
+                    》。
+                </label>
+                </p>
+            </div>
+            <div class="item">
+                <label>&nbsp;</label>
+                <input value="注 册" name="user_login" class="register" tabindex="5" type="submit">
+            </div>
+        </form>
+    </div>
+    <ul id="side-nav" class="aside">
+        <li>
+            > 已经有柠檬帐号？
+            <a href="/login" rel="nofollow">点击登录</a>
+        </li>
+        <li>
+            > 
+            <a href="">点击下载柠檬移动应用</a>
+    </ul>
+</div>
+{% endblock %}

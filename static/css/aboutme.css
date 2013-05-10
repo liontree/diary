@@ -1,0 +1,58 @@
+.header-logged-out {
+    padding: 10px 0;
+}
+.header {
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.container {
+    margin: 0 auto;
+    width: 920px;
+}
+.header-logo-wordmark {
+    float: left;
+    margin: 9px 10px 9px 0;
+    position: relative;
+}
+#header, #content, #footer {
+    overflow: hidden;
+}
+#content {
+    margin: 30px auto;
+    width: 920px;
+}
+#header, #content {
+    margin-bottom: 40px;
+}
+#header {
+    width:920px;
+    margin:8px auto 9px auto;
+}
+.article {
+    float: left;
+    width: 590px;
+    margin:0 auto;
+}
+.wrap {
+    background-color: #F2FBF2;
+    display: block;
+}
+.aside {
+    color: #666666;
+    float: right;
+    width: 310px;
+}
+ol, ul {
+    list-style: none outside none;
+}
+.aside li {
+    padding-bottom: 20px;
+}
+a {
+    color: #4183C4;
+    text-decoration: none;
+}
+a:hover {
+    color:#FF8700;
+    text-decoration: none;
+}

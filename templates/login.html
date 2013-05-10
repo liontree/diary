@@ -7,12 +7,12 @@
 {% endblock %}
 {% block header %}
     <div id="header"> 
-        <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/passport1.png"/></a>
+        <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/login_mini.png"/></a>
     </div>
 {% endblock %}
 {% block content %}
     <div id="content">
-        <h1>欢迎登录</h1>
+        <p style="font-size:24px;">欢迎登录</p>
         <div class="article">
             <form id="lzform" name="lzform" method="post" action="" onsubmit="return validateForm(this);">
                 <input name="source" value="simple" type="hidden">
@@ -35,14 +35,14 @@
                 </div>
                 <div class="item">
                     <label>&nbsp;</label>
-                    <input value="登录" name="user_login" class="login" tabindex="5" type="submit">
+                    <input value="登 录" name="user_login" class="login" tabindex="5" type="submit">
                 </div>
             </form>
         </div>
         <ul id="side-nav" class="aside">
             <li>
                 > 还没有柠檬帐号？
-                <a href="" rel="nofollow">立即注册</a>
+                <a href="/register" rel="nofollow">立即注册</a>
             </li>
             <li>
                 > 
