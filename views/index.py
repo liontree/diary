@@ -12,3 +12,7 @@ def base(name=None):
 @app.route('/about/aboutme')
 def aboutme():
     return render_template('aboutme.html')
+
+@app.route('/404')
+def notfound():
+    return render_template('404.html')

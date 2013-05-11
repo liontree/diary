@@ -16,14 +16,14 @@
         <div class="article">
             <form id="lzform" name="lzform" method="post" action="" onsubmit="return validateForm(this);">
                 <input name="source" value="simple" type="hidden">
-                <input name="redir" value="http://www.douban.com" type="hidden">
+                <input name="redir" value="" type="hidden">
                 <div class="item">
                     <label>帐号</label>
-                    <input style="color: rgb(204, 204, 204);" id="email" name="email" class="basic-input" maxlength="60" value="邮箱/手机号" tabindex="1" type="text">
+                    <input style="color: rgb(204, 204, 204);" id="email" name="email" class="basic-input" maxlength="64" value="邮箱/手机号" tabindex="1" type="text">
                 </div>
                 <div class="item">
                     <label>密码</label>
-                    <input id="password" name="password" class="basic-input" maxlength="20" tabindex="2" type="password">
+                    <input id="password" name="password" class="basic-input" maxlength="16" tabindex="2" type="password">
                 </div>
                 <div class="item">
                     <label>&nbsp;</label>
@@ -96,7 +96,7 @@
 		error = 1;
 		} else if (! (/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(account_value)
 		|| /^1[358](\d){9}$/.test(account_value))){
-		displayError(account, '请输入正确的邮箱/手机号');
+		displayError(account, '请输入正确的邮箱');
 		error = 1;
 		} else {
 		account && clearError(account);

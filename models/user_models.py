@@ -20,4 +20,8 @@ class User(db.Model):
     def query_by_email(self,email):
         user = User.query.filter_by(email=email).first()
         return user
-
+    
+    def addAccount(self, email, password, username):
+        newpeople = User(email=email, password=password, username=username)
+        db.session.add(newpeople)
+        db.session.commit()

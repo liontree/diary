@@ -4,7 +4,7 @@
 from lemondiary import app
 from flask import render_template, request, flash, redirect, url_for
 from lemondiary.models.user_models import User
-from lemondiary.forms.loginform import LoginForm
+from lemondiary.forms.userForm import LoginForm, RegisterForm
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -35,22 +35,23 @@ def login():
 def logout():
     return render_template('base.html')
 
-#@app.route('/register', method=['GET', 'POST'])
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template('register.html')
-    '''
     if request.method == 'GET':
-        return render.template('register.html')
+        return render_template('register.html')
     elif request.method == 'POST':
         email = request.form['email'].strip()
-        password == request.form['password'].strip()
+        password = request.form['password'].strip()
         username = request.form['username'].strip()
-        #验证输入是否符合要求
-        #if 符合要求:
-            #向表中插入数据
-            #return redirect(url_for(欢迎界面))
+        register_result = RegisterForm(email=email, password=password, username=username).checkValid()
+        if register_result.is_success is True:
+            user = User().query_by_email(email)
+            if user is None:
+                User().addAccount(email=email, password=password, username=username)
+                return redirect(url_for('base',name=username))
+            else:
+                flash("该邮箱已经被注册")
         else:
             return redirect(url_for('register'))
     else:
-        return redirect(url_for('register'))'''
+        return redirect(url_for('register'))
