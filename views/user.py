@@ -18,12 +18,11 @@ def login():
         if login_result.is_success is True:
             user = User().query_by_email(email)
             if user is None:
-                #flash功能模板中还没有完成
-                flash(u'Your email has not been registered.')
+                flash(u'你的邮箱还没有被注册')
             else:
                 #关于密码的存储方式需要更改
                 if user.password != password:
-                    flash(u'password does not match')
+                    flash(u'密码不匹配')
                 else:
                     return redirect(url_for('base',name=user.username))
         else:
@@ -50,7 +49,8 @@ def register():
                 User().addAccount(email=email, password=password, username=username)
                 return redirect(url_for('base',name=username))
             else:
-                flash("该邮箱已经被注册")
+                flash(u"该邮箱已经被注册")
+                return redirect(url_for('register'))
         else:
             return redirect(url_for('register'))
     else:
