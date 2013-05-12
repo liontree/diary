@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*-coding:utf-8-*-
 
-from lemondiary.Info.checkInfo import IsValid
+from lemonbook.Info.checkInfo import IsValid
 
 class LoginForm:
     def __init__(self, email, password):

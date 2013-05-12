@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*-coding:utf-8-*-
 
-from lemondiary.initdb import db, create_app
+from lemonbook.initdb import db, create_app
 
 class User(db.Model):
     __tablename__ = 'account'
@@ -10,9 +10,10 @@ class User(db.Model):
     password = db.Column('password', db.String(16), nullable=False)
     username = db.Column('username', db.String(16), nullable=False)
     
-    def __inti__(self,email,password):
+    def __inti__(self,email,password,username):
         self.email = email
         self.password = password
+        self.username = username
 
     def __repr__(self):
         return '<User %r>' %self.email

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*_coding:utf-8-*-
 
-from lemondiary import app
+from lemonbook import app
 from flask import render_template, flash
 
 @app.route('/')

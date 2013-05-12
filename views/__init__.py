@@ -1,5 +1,5 @@
-from lemondiary import app
-from lemondiary import config
+from lemonbook import app
+from lemonbook import config
 
 import index
 import user

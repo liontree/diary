@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*-coding:utf-8-*-
 
-from lemondiary import app
+from lemonbook import app
 from flask import render_template, request, flash, redirect, url_for
-from lemondiary.models.user_models import User
-from lemondiary.forms.userForm import LoginForm, RegisterForm
+from lemonbook.models.user_models import User
+from lemonbook.forms.userForm import LoginForm, RegisterForm
 
 
 @app.route('/login', methods=['GET', 'POST'])

@@ -12,13 +12,13 @@
             <div class="header header-logged-out">
             {% block header %}
                 <div class="container clearfix">
-                    {% if name %}
-                    <h2>welcome {{ name }} !</h2>
-                    <a href='/'>logout</a>
-                    {% else %}
                     <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/title1.png"/></a>
+                    {% if name %}
+                    <span class="name">这是{{ name }}的创作之地</span>
+                    <a href='/' class="logout">logout</a>
+                    {% else %}
                     <a href='/register' class="signupButton"> sign up for free</a>
-                    <a href='login' class="signinButton" >login</a>
+                    <a href='/login' class="signinButton" >login</a>
                     {% endif %}
                 </div>
                  <p style="font-size:14px; font-style:italic;font-family:Arial,Verdana,Sans-serif; margin:10px 0 0 300px; float:left;           ">为自己的生活写一本书</p>
