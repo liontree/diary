@@ -1,2 +1,36 @@
 {% extends 'base.html' %}
-
+{% block title %}编辑{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link type="text/css" rel="stylesheet" media="screen" href="../static/css/edit.css"/>
+{% endblock %}
+{% block header %}
+<div class="container clearfix">
+    <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/title1.png"/></a>
+</div>
+{% endblock %}
+{% block content %}
+<div id="content">
+    <p style="font-size:24px;">添加随笔</p><br/>
+    <div class="article">
+        <form id="form_note" method="post" action="">
+            <div class="row note-text">
+		        <ul class="control-panel">
+		            <li class="image-btn">
+			            <a class="image" title="插入图片" href="#image">图片</a>
+		            </li>
+		            <li class="link-btn">
+			            <a class="link" title="插入链接" href="#link">链接</a>
+		            </li>
+		        </ul>
+		        <label class="field" for="note_text">正文:</label>
+		        <textarea id="note_text" name="note_text" tabindex="1"></textarea>
+            </div>
+	        <div class="row footer">
+                <div class="error-msg board"> </div>
+                    <input id="publish_note" class="submit" type="submit" name="note_submit" value="发 表" tabindex="2"/>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
