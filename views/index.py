@@ -5,7 +5,7 @@ from lemonbook import app
 from flask import render_template, flash
 
 @app.route('/')
-@app.route('/people/<name>')
+@app.route('/people/<name>') #url地址避免出现中文，这个地方是不是显示uid比较好
 def base(name=None):
     return render_template('base.html',name=name)
 

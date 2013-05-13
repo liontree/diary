@@ -6,6 +6,7 @@ create table account (
     password varchar(16) not null,
     username varchar(16) not null,
     create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    userid varchar(16);
     primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='account info';
 

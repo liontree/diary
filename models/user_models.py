@@ -9,11 +9,13 @@ class User(db.Model):
     email = db.Column('email', db.String(64), nullable=False )
     password = db.Column('password', db.String(16), nullable=False)
     username = db.Column('username', db.String(16), nullable=False)
+    userid = db.Column('userid',db.String(16), nullable=True)
     
-    def __inti__(self,email,password,username):
+    def __inti__(self,email,password,username,userid=None):
         self.email = email
         self.password = password
         self.username = username
+        self.userid = userid
 
     def __repr__(self):
         return '<User %r>' %self.email
@@ -22,7 +24,7 @@ class User(db.Model):
         user = User.query.filter_by(email=email).first()
         return user
     
-    def addAccount(self, email, password, username):
-        newpeople = User(email=email, password=password, username=username)
+    def addAccount(self, email, password, username,userid=None):
+        newpeople = User(email=email, password=password, username=username, userid=userid)
         db.session.add(newpeople)
         db.session.commit()
