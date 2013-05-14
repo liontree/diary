@@ -1,7 +1,8 @@
-#!/usr/bin/env NotImplementedError("No `id` attribute - override get_id"python
+#!/usr/bin/env python
 # -*-coding:utf-8-*-
 
-from lemonbook.initdb import db, create_app
+#from lemonbook.initdb import db, create_app
+from lemonbook.extensions import db
 
 class UserRight(object):
     '''

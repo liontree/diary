@@ -2,12 +2,22 @@
 # -*-coding:utf-8-*-
 
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.login import LoginManager
+
 from lemonbook import app
 
-db = SQLAlchemy(app)
-def create_app():
-    db.init_app(app)
-    return app
+db = SQLAlchemy()
+db.init_app(app)
+db.app = app
+
+login_manager = LoginManager()
+login_manager.setup_app(app)
+
+#db = SQLAlchemy(app)
+#def create_app():
+#    db.init_app(app)
+#    return app
+
 
 '''
 http://pythonhosted.org/Flask-SQLAlchemy/quickstart.html

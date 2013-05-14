@@ -1,4 +1,4 @@
-from lemonbook.initdb import db, create_app
+from lemonbook.extensions import db
 
 class Note(db.Model):
     __tablename__ = 'note'

@@ -5,8 +5,7 @@ from lemonbook import app
 from flask import render_template, request, flash, redirect, url_for
 from lemonbook.models.user_models import User
 from lemonbook.forms.userForm import LoginForm, RegisterForm
-from lemonbook.extensions.flask_login import LoginManager, current_user, login_required, login_user, logout_user,confirm_login, fresh_login_required
-
+from flask.ext.login import LoginManager,current_user,login_required,login_user,logout_user,UserMixin,AnonymousUser,confirm_login,fresh_login_required
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
