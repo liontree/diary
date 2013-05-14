@@ -1,19 +1,8 @@
-body {
-    background-color: #FFFFFF;
-    color: #333333;
-    background-image:url('../img/404.jpg');
-    background-repeat:no-repeat;                                                                                                       
-    background-position:100% 100%; 
+#content {
+			 margin: 63px auto 0;
+    width: 595px;
 }
 
-#header {
-    margin: 8px auto 9px;
-    width: 920px;
-}
-p {
-    font-size:20px;
-    float:center;
-}
 a {
     color: #4183C4;
     text-decoration: none;

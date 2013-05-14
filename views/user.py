@@ -5,6 +5,7 @@ from lemonbook import app
 from flask import render_template, request, flash, redirect, url_for
 from lemonbook.models.user_models import User
 from lemonbook.forms.userForm import LoginForm, RegisterForm
+from lemonbook.extensions.flask_login import LoginManager, current_user, login_required, login_user, logout_user,confirm_login, fresh_login_required
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -24,14 +25,19 @@ def login():
                 if user.password != password:
                     flash(u'密码不匹配')
                 else:
-                    return redirect(url_for('base',name=user.username))
+                    remember = request.form.get("remember", "no") == "yes"
+                    login_user(user=user,remember=remember)
+                    #return redirect(url_for('base',name=user.username))
+                    return redirect(url_for('create'))
         else:
             return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
 
 @app.route('/logout')
+@login_required
 def logout():
+    logout_user()
     return render_template('base.html')
 
 @app.route('/register', methods=['GET', 'POST'])

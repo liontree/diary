@@ -13,6 +13,6 @@ def base(name=None):
 def aboutme():
     return render_template('aboutme.html')
 
-@app.route('/404')
+@app.errorhandler(404)
 def notfound():
-    return render_template('404.html')
+    return render_template('404.html'), 404

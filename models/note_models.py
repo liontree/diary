@@ -3,23 +3,23 @@ from lemonbook.initdb import db, create_app
 class Note(db.Model):
     __tablename__ = 'note'
     id = db.Column('id', db.Integer, primary_key=True, autoincrement=True)
-    userid = db.Column('userid', db.Integer, nullable=False)
+    user_id = db.Column('user_id', db.Integer, nullable=False)
     contents = db.Column('contents', db.Text, nullable=False)
     create_time = db.Column('create_time', db.TIMESTAMP, nullable=False)
 
-    def __init__(self,userid,contents):
-        self.userid = userid
+    def __init__(self,user_id,contents):
+        self.user_id = user_id
         self.contents = contents
 
     def __repr__(self):
-        return "<Note id=%s, userid=%s>" % (self.id, self.userid)
+        return "<Note id=%s, user_id=%s>" % (self.id, self.user_id)
 
-    def addNote(self, userid, contents):
-        note = Note(userid=userid, contents=contents)
+    def addNote(self, user_id, contents):
+        note = Note(user_id=user_id, contents=contents)
         db.session.add(note)
         db.session.commit()
 
-    def query_by_userid(self,userid):
-        notes = Note.query.filter_by(userid=userid).all()
+    def query_by_userid(self, user_id):
+        notes = Note.query.filter_by(user_id=user_id).all()
         #type of notes : list
         return notes

@@ -13,8 +13,9 @@
             {% block header %}
                 <div class="container clearfix">
                     <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/title1.png"/></a>
-                    {% if name %}
-                    <span class="name">这是{{ name }}的创作之地</span>
+                    {% if current_user.is_authenticated() %}
+                    <span class="name">这是{{ current_user.name }}的创作之地</span>
+                    <a href='/note/create' class="create">create</a>
                     <a href='/' class="logout">logout</a>
                     {% else %}
                     <a href='/register' class="signupButton"> sign up for free</a>
@@ -27,6 +28,11 @@
             <div class="begintaste"></div>
             <div class="container clearfix">
             {% block content %}
+                {% if name %}
+                <div>
+                    <p>这里的功能暂时还没有实现</p>
+                </div>
+                {% else %}
                 <p style="font-size:50px; margin:20px 0 10px 0">
                 Keep learning, keep writing.</p>
                 <p style="font-size:65px; margin:5px 0 0 0">
@@ -35,6 +41,7 @@
                 <span style="font-size:14px; margin:10px 0 30px 0; color:#B9BEC2">
                     谁念西风独自凉？萧萧黄叶闭疏窗，沉思往事立残阳。被酒莫惊春睡重，赌书消得泼茶香，当时只道是寻常。
                 </span>
+                {% endif %}
             {% endblock %}
             </div>
             <div id="footer">

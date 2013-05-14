@@ -6,13 +6,14 @@ create table account (
     password varchar(16) not null,
     username varchar(16) not null,
     create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    userid varchar(16);
+    status char(1) NOT NULL DEFAULT '',
+    displayid varchar(16);
     primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='account info';
 
 create table note (
     id int not null auto_increment,
-    userid int not null,
+    user_id int not null,
     contents text not null,
     create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     primary key(id)

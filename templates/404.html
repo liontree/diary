@@ -1,13 +1,18 @@
-<html>
-    <head>
-        <title>404 not found</title>
-        <link type="text/css" rel="stylesheet" media="screen" href="../static/css/404.css" />
-    </head>
-    <body>
-        <div id="header">
-        <p>
-        哦，您要访问的页面不见了，<br/>先喝杯<a href='/'>柠檬水</a>吧。
-        </p>
-        </div>
-    </body>
-</html>
+{% extends 'base.html'%}
+{% block title %}404 not found{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link type="text/css" rel="stylesheet" media="screen" href="../static/css/404.css"/>
+{% endblock %}
+{% block header %}
+<div class="container clearfix">
+    <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/title1.png"/></a>
+</div>
+{% endblock %}
+{% block content %}
+<div id="content">
+    <p>page not found</p>
+    <p>What you were looking for is just not there.</p>
+    <p><a href="{{ url_for('index') }}">go somewhere nice</a></p>
+</div>
+{% endblock %}
