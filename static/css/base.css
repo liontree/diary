@@ -91,13 +91,13 @@ color:#ffffff;
 font-family:arial;
 font-size:15px;
 font-weight:bold;
-padding:6px 19px;
+padding:6px 18px;
 text-decoration:none;
 
 text-shadow:0px 1px 0px #528009;
 float:left;
 position:relative;
-left:185px;
+left:260px;
 }
 .signupButton:hover {
 
@@ -145,13 +145,13 @@ color:#777777;
 font-family:arial;
 font-size:15px;
 font-weight:bold;
-padding:6px 17px;
+padding:6px 18px;
 text-decoration:none;
 
 text-shadow:0px 1px 0px #ffffff;
 float:left;
 position:relative;
-left:200px;
+left:275px;
 }
 .signinButton:hover {
 
@@ -187,18 +187,20 @@ color:#777777;
 font-family:arial;
 font-size:15px;
 font-weight:bold;
-padding:6px 20px;
+padding:6px 18px;
 text-decoration:none;
 text-shadow:1px 1px 0px #ffffff;
 position:relative;
-left:190px;
+left:205px;
 float:left;
-}.logout:hover {
+}
+.logout:hover {
 background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
 background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
 filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
 background-color:#dfdfdf;
-}.logout:active {
+}
+.logout:active {
 position:relative;
 top:1px;
 }
@@ -285,3 +287,39 @@ hr {
 .right p {
     margin: 1em 0;
 }
+
+.create {
+	-moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+	box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9dce2c), color-stop(1, #8cb82b) );
+	background:-moz-linear-gradient( center top, #9dce2c 5%, #8cb82b 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dce2c', endColorstr='#8cb82b');
+	background-color:#9dce2c;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #83c41a;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 18px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #689324;
+    position:relative;
+    float:left;
+    left:190px;
+}
+.create:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
+	background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
+	background-color:#8cb82b;
+}
+.create:active {
+	position:relative;
+	top:1px;
+}
+

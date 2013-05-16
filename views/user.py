@@ -5,7 +5,7 @@ from lemonbook import app
 from flask import render_template, request, flash, redirect, url_for
 from lemonbook.models.user_models import User
 from lemonbook.forms.userForm import LoginForm, RegisterForm
-from flask.ext.login import LoginManager,current_user,login_required,login_user,logout_user,UserMixin,AnonymousUser,confirm_login,fresh_login_required
+from flask.ext.login import LoginManager,current_user,login_required,login_user,logout_user,confirm_login,fresh_login_required
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -16,7 +16,7 @@ def login():
         password = request.form['password'].strip()
         login_result = LoginForm(email=email, password=password).checkValid()
         if login_result.is_success is True:
-            user = User().query_by_email(email)
+            user = User.query_by_email(email)
             if user is None:
                 flash(u'你的邮箱还没有被注册')
             else:
@@ -26,8 +26,7 @@ def login():
                 else:
                     remember = request.form.get("remember", "no") == "yes"
                     login_user(user=user,remember=remember)
-                    #return redirect(url_for('base',name=user.username))
-                    return redirect(url_for('create'))
+                    return redirect(url_for('base', name=user.username))
         else:
             return redirect(url_for('login'))
     else:
@@ -50,7 +49,7 @@ def register():
         userid = request.form['userid'].strip()
         register_result = RegisterForm(email=email, password=password, username=username).checkValid()
         if register_result.is_success is True:
-            user = User().query_by_email(email)
+            user = User.query_by_email(email)
             if user is None:
                 User().addAccount(email=email, password=password, username=username)
                 return redirect(url_for('base',uid=userid,name=username))

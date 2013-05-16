@@ -1,4 +1,3 @@
-#from lemonbook import app
 from lemonbook import app
 
 if __name__ == '__main__':

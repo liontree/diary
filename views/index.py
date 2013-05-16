@@ -1,8 +1,7 @@
-#!/usr/bin/env python
 # -*_coding:utf-8-*-
 
 from lemonbook import app
-from flask import render_template, flash
+from flask import render_template
 
 @app.route('/')
 @app.route('/people/<name>') #url地址避免出现中文，这个地方是不是显示uid比较好
@@ -13,6 +12,3 @@ def base(name=None):
 def aboutme():
     return render_template('aboutme.html')
 
-@app.errorhandler(404)
-def notfound():
-    return render_template('404.html'), 404

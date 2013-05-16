@@ -1,8 +1,6 @@
-#!/usr/bin/env python
 # -*-coding:utf-8-*-
 
 from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.login import LoginManager
 
 from lemonbook import app
 
@@ -10,17 +8,20 @@ db = SQLAlchemy()
 db.init_app(app)
 db.app = app
 
-login_manager = LoginManager()
-login_manager.setup_app(app)
-
-#db = SQLAlchemy(app)
-#def create_app():
-#    db.init_app(app)
-#    return app
-
 
 '''
-http://pythonhosted.org/Flask-SQLAlchemy/quickstart.html
+<h1>Flask Extensions<h1/>
+
+Link : http://docs.torriacg.org/docs/flask/extensiondev.html
+
+<h1>Flask Extensions Registry<h1/>
+
+Link : http://flask.pocoo.org/extensions/
+
+<hr/>
+
+<h2>Flask-SQLAlchemy<h2/>
+Link : http://pythonhosted.org/Flask-SQLAlchemy/quickstart.html
 
 Road to Enlightenment
 The only things you need to know compared to plain SQLAlchemy are:
