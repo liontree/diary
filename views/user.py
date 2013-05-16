@@ -46,13 +46,13 @@ def register():
         email = request.form['email'].strip()
         password = request.form['password'].strip()
         username = request.form['username'].strip()
-        userid = request.form['userid'].strip()
+        displayid = request.form['displayid'].strip()
         register_result = RegisterForm(email=email, password=password, username=username).checkValid()
         if register_result.is_success is True:
             user = User.query_by_email(email)
             if user is None:
-                User().addAccount(email=email, password=password, username=username)
-                return redirect(url_for('base',uid=userid,name=username))
+                User.addAccount(email=email, password=password, username=username)
+                return redirect(url_for('base',name=username))
             else:
                 flash(u"该邮箱已经被注册")
                 return redirect(url_for('register'))

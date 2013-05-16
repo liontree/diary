@@ -40,8 +40,9 @@ class User(db.Model, UserMixin):
         return user
 
     #displayid的设定
-    def addAccount(self, email, password, username, displayid=None):
-        newpeople = User(email=email, password=password, username=username, displayid=displayid)
+    @classmethod
+    def addAccount(self, email, password, username,status='', displayid=None):
+        newpeople = User(email=email, password=password, username=username, status=status, displayid=displayid)
         db.session.add(newpeople)
         db.session.commit()
 
