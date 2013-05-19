@@ -13,7 +13,8 @@ class Note(db.Model):
 
     def __repr__(self):
         return "<Note id=%s, user_id=%s>" % (self.id, self.user_id)
-
+    
+    @classmethod
     def addNote(self, user_id, contents):
         note = Note(user_id=user_id, contents=contents)
         db.session.add(note)

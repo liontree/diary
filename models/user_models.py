@@ -26,7 +26,7 @@ class User(db.Model, UserMixin):
         return '<User %r>' %self.email
 
     def is_active(self):
-        return self.status
+        return True
     
     @classmethod
     def query_by_email(self,email):

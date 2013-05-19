@@ -26,7 +26,7 @@ def login():
                 else:
                     remember = request.form.get("remember", "no") == "yes"
                     login_user(user=user,remember=remember)
-                    return redirect(url_for('base', name=user.username))
+                    return redirect(request.args.get("next") or url_for('base', name=user.username))
         else:
             return redirect(url_for('login'))
     else:
