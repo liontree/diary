@@ -252,10 +252,6 @@ def _user_context_processor():
 def login_fresh():
     return session.get("_fresh", False)
 
-def get_user_id():
-    if session.has_key('user_id'):
-        return session['user_id']
-    return 0
 
 def login_user(user, remember=False):
     user_id = user.id

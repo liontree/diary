@@ -1,6 +1,6 @@
 #e# -*-coding:utf-8-*-
 
-from lemonbook.Info.checkInfo import IsValid
+from lemonbook.functionlib.checkInfo import IsValid
 
 class EditForm:
     def __init__(self, contents):
