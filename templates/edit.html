@@ -27,7 +27,15 @@
 		        <textarea id="note_text" name="contents" tabindex="1"></textarea>
             </div>
 	        <div class="row footer">
-                <div class="error-msg board"> </div>
+                <div class="error-msg board">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            {{ message }}
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %} 
+                </div>
                  <input id="publish_note" class="submit" type="submit" name="note_submit" value="发 表" tabindex="2"/>
                 <a href="" class="cancel">取 消</a>
             </div>

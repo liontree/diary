@@ -13,25 +13,30 @@ def get_user_id():
         return session['user_id']
     return 0
 
+
+@app.route('/note/<name>')
+@login_required
+def display(name=None):
+    user_id = get_user_id()
+    user = User.query_by_id(id=user_id)
+    name = user.username
+    return render_template('note.html',name=name)
+
+
+
 @app.route('/note/create', methods=['GET', 'POST'])
 @login_required
 def create():
     if request.method == 'GET':
         return render_template('edit.html')
-    elif request.method == 'POST':
+    elif request.method == 'POST' and 'contents' in request.form:
         contents = request.form['contents'].strip()
-        post_result = EditForm(contents=contents).checkSubmit()
-        if post_result.is_success is True:
+        if contents == '':
+            flash(u"提交内容不能为空")
+            return redirect(url_for('create'))
+        else:
             user_id = get_user_id()
             Note.addNote(user_id=user_id, contents=contents)
-            return "hello"
-        else:
-            flash("提交内容不能为空")
-            return redirect(url_for('create'))
+            return redirect(url_for('display'))
     else:
         return redirect(url_for('create'))
-
-#@app.route('/note/<note_id>')
-#def displayall():
-#    if request.method == 'GET':
-#        return render_template('note.html')

@@ -1,0 +1,20 @@
+.container {
+    margin: 0 auto;
+    width: 920px;
+
+}
+.clearfix {
+    display: block;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.header-logo-wordmark {
+    float: left;
+    margin: 9px 10px 9px 0;
+    position: relative;
+}

@@ -8,5 +8,5 @@ class EditForm:
 
     def checkSubmit(self):
         if self.contents == '':
-            return IsValid(False, '请输入文字')
+            return IsValid(False, u'请输入文字')
         return IsValid(True, '')
