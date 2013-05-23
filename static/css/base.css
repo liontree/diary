@@ -1,7 +1,7 @@
 body {
     background-color: #FFFFFF;
     color: #333333;
-    background-image:url('../img/new_back.jpg');
+    background-image:url('../img/background_book.jpg');
     background-repeat:no-repeat;                                                                                                   
     background-position:100% 0%; 
 }
@@ -35,7 +35,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .container {
     margin: 0 auto;
     width: 920px;
-
 }
 .clearfix {
     display: block;
@@ -205,60 +204,14 @@ position:relative;
 top:1px;
 }
 
-#sideLeft section {
-    margin-left: 14px;
-    padding: 0 100px;
-}
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-.box:before {
-    background: url("../img/box1.png") no-repeat scroll left top transparent;
-    top: -13px;
-}
-.box:before, .box:after {
-    content: "";
-    display: block;
-    height: 15px;
-    left: 0;
-    position: absolute;
-    width: 422px;
-}
-.box:after {
-    background: url("../img/box2.png") no-repeat scroll left top transparent;
-    bottom: -13px;
-}
-.box:before, .box:after {
-    content: "";
-    display: block;
-    height: 15px;
-    left: 0;
-    position: absolute;
-    width: 422px;
-}
-#sideLeft .box {
-    background: url("../img/box3.png") repeat-y scroll left top transparent;
-    height: 465px;
-}
-.box {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-radius: 20px 20px 20px 20px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
-    margin: 35px 0 0;
-    position: relative;
-    width: 421px;
-}
-#sideLeft .tnode {
-    background: url("../img/spr.png") repeat-y scroll left top transparent;
-    height: 395px;
-    left: -15px;
-    padding-left: 75px;
-    position: relative;
-    top: 45px;
-    width: 300px;
-}
-
-
+.bookback {
+	height: 500px;
+	width: 850px;
+	background-image: url('../img/bookback.png');
+	background-repeat:no-repeat; 
+ margin:20px 35px; 
+	}
+	
 
 .content {
     padding: 0;
@@ -269,7 +222,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     width:100%;
     height:28px;
     background-color:#C9F76F;
-    margin:75px 0 0 0;
+    margin:35px 0 0 0;
 }
 .about {
     width:100%;
