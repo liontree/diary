@@ -39,7 +39,14 @@ class User(db.Model, UserMixin):
         user = User.query.filter_by(id=id).first()
         return user
 
-    #displayid的设定
+    @classmethod
+    def query_by_displayid(self, displayid):
+        user = User.query.filter_by(displayid=displayid).first()
+        if user is None:
+            return True
+        else:
+            return False
+
     @classmethod
     def addAccount(self, email, password, username,status='', displayid=None):
         newpeople = User(email=email, password=password, username=username, status=status, displayid=displayid)

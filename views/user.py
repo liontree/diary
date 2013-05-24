@@ -25,7 +25,11 @@ def login():
                 else:
                     remember = request.form.get("remember", "no") == "yes"
                     login_user(user=user,remember=remember)
-                    return redirect(request.args.get("next") or url_for('base', name=user.username))
+                    if user.displayid != None:
+                        uid = user.displayid
+                    else:
+                        uid = user.id
+                    return redirect(request.args.get("next") or url_for('base', uid=uid))
         else:
             return redirect(url_for('login'))
     else:
@@ -50,8 +54,16 @@ def register():
         if register_result.is_success is True:
             user = User.query_by_email(email)
             if user is None:
-                User.addAccount(email=email, password=password, username=username)
-                return redirect(url_for('base',name=username))
+                if displayid == '':
+                    User.addAccount(email=email, password=password, username=username)
+                    new_user = User.query_by_email(email=email)
+                    uid = new_user.id
+                elif User.query_by_displayid(displayid=displayid) == True:
+                    User.addAccount(email=email, password=password, username=username, displayid=displayid)
+                    uid = displayid
+                else:
+                    flash(u"已经有人抢先注册了")
+                return redirect(url_for('base',uid=uid))
             else:
                 flash(u"该邮箱已经被注册")
                 return redirect(url_for('register'))
