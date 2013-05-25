@@ -3,7 +3,7 @@ use New;
 create table account (
     id int not null auto_increment,
     email varchar(64) not null,
-    password varchar(16) not null,
+    password varchar(256) not null,
     username varchar(16) not null,
     create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     status char(1) NOT NULL DEFAULT '',

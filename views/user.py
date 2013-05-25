@@ -5,6 +5,7 @@ from flask import render_template, request, flash, redirect, url_for
 from lemonbook.models.user_models import User
 from lemonbook.forms.userForm import LoginForm, RegisterForm
 from lemonbook.functionlib.flask_login import LoginManager,current_user,login_required,login_user,logout_user,confirm_login,fresh_login_required
+from lemonbook.functionlib.secure import securepw,checkpassword
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -19,8 +20,7 @@ def login():
             if user is None:
                 flash(u'你的邮箱还没有被注册')
             else:
-                #关于密码的存储方式需要更改
-                if user.password != password:
+                if not checkpassword(password,user.password):
                     flash(u'密码不匹配')
                 else:
                     remember = request.form.get("remember", "no") == "yes"
@@ -53,6 +53,7 @@ def register():
         register_result = RegisterForm(email=email, password=password, username=username).checkValid()
         if register_result.is_success is True:
             user = User.query_by_email(email)
+            password = securepw(password)
             if user is None:
                 if displayid == '':
                     User.addAccount(email=email, password=password, username=username)
