@@ -29,18 +29,18 @@ class User(db.Model, UserMixin):
         return True
     
     @classmethod
-    def query_by_email(self,email):
+    def query_by_email(cls, email):
         user = User.query.filter_by(email=email).first()
         return user
 
     
     @classmethod
-    def query_by_id(self, id):
+    def query_by_id(cls, id):
         user = User.query.filter_by(id=id).first()
         return user
 
     @classmethod
-    def query_by_displayid(self, displayid):
+    def query_by_displayid(cls, displayid):
         user = User.query.filter_by(displayid=displayid).first()
         if user is None:
             return True
@@ -48,7 +48,7 @@ class User(db.Model, UserMixin):
             return False
 
     @classmethod
-    def addAccount(self, email, password, username,status='', displayid=None):
+    def addAccount(cls, email, password, username,status='', displayid=None):
         newpeople = User(email=email, password=password, username=username, status=status, displayid=displayid)
         db.session.add(newpeople)
         db.session.commit()

@@ -14,17 +14,19 @@ def get_user_id():
     return 0
 
 
-@app.route('/note/<name>')
+@app.route('/note/<uid>')
 @login_required
-def display(name=None):
+def display(uid):
     user_id = get_user_id()
     user = User.query_by_id(id=user_id)
-    name = user.username
-    return render_template('note.html',name=name)
+    if user.displayid != '':
+        uid = user.displayid
+    else:
+        uid = user.id
+    return render_template('note.html',uid=uid)
 
 
-
-@app.route('/note/create', methods=['GET', 'POST'])
+@app.route('/create', methods=['GET', 'POST'])
 @login_required
 def create():
     if request.method == 'GET':
@@ -36,7 +38,8 @@ def create():
             return redirect(url_for('create'))
         else:
             user_id = get_user_id()
+            user = User.query_by_id(id=user_id)
             Note.addNote(user_id=user_id, contents=contents)
-            return redirect(url_for('display'))
+            return redirect(url_for('display',name=user.username))
     else:
         return redirect(url_for('create'))

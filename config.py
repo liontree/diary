@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 DEBUG=True
-SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost/New'
+SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost/LEMON'
 SECRET_KEY="!@#lionlemon#@!"
 PORT=5000
 HOST="localhost"

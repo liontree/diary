@@ -3,11 +3,12 @@
 from lemonbook import app
 from flask import render_template, request, flash, redirect, url_for
 from lemonbook.models.user_models import User
+from lemonbook.models.note_models import Note
 from lemonbook.forms.userForm import LoginForm, RegisterForm
 from lemonbook.functionlib.flask_login import LoginManager,current_user,login_required,login_user,logout_user,confirm_login,fresh_login_required
 from lemonbook.functionlib.secure import securepw,checkpassword
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/latest', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
         return render_template('login.html')
@@ -29,7 +30,11 @@ def login():
                         uid = user.displayid
                     else:
                         uid = user.id
-                    return redirect(request.args.get("next") or url_for('base', uid=uid))
+                    note = Note.display_latest(user_id=user.id)
+                    if note is None:
+                        return render_template('base.html',uid=uid,contents=None)
+                    else:
+                        return render_template('base.html', uid=uid, contents=note.contents)
         else:
             return redirect(url_for('login'))
     else:
@@ -64,7 +69,7 @@ def register():
                     uid = displayid
                 else:
                     flash(u"已经有人抢先注册了")
-                return redirect(url_for('base',uid=uid))
+                return render_template('base.html',uid=uid,contents=None)
             else:
                 flash(u"该邮箱已经被注册")
                 return redirect(url_for('register'))

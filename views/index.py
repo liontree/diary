@@ -4,14 +4,14 @@ from lemonbook import app
 from flask import render_template
 
 @app.route('/')
-@app.route('/people/<uid>')
-def base(uid=None):
-    return render_template('base.html',uid=uid)
+@app.route('/<uid>')
+def base(uid=None,contents=None):
+    return render_template('base.html',uid=uid,contents=contents)
 
-@app.route('/about/aboutme')
+@app.route('/aboutme')
 def aboutme():
     return render_template('aboutme.html')
 
-@app.route('/about/app')
+@app.route('/app')
 def app():
     return render_template('app.html')
