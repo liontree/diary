@@ -32,6 +32,13 @@
                     <label>密码</label>
                     <input id="password" name="password" class="basic-input" maxlength="16" tabindex="2" type="password">
                 </div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <span class="error-tip">{{ message }}</span>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
                 <div class="item">
                     <label>&nbsp;</label>
                     <p class="remember">

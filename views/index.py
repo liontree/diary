@@ -4,9 +4,12 @@ from lemonbook import app
 from flask import render_template
 
 @app.route('/')
-@app.route('/<uid>')
-def base(uid=None,contents=None):
-    return render_template('base.html',uid=uid,contents=contents)
+def base():
+    return render_template('base.html')
+
+@app.route('/welcome')
+def welcome():
+    return render_template('welcome.html')
 
 @app.route('/aboutme')
 def aboutme():

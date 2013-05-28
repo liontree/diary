@@ -14,20 +14,18 @@ def get_user_id():
     return 0
 
 
-@app.route('/note/<uid>')
+@app.route('/latest')
 @login_required
-def display(uid):
+def latest():
     user_id = get_user_id()
-    user = User.query_by_id(id=user_id)
-    if user.displayid != '':
-        uid = user.displayid
+    note = Note.display_latest(user_id=user_id)
+    if note is None:
+        contents = None
     else:
-        uid = user.id
-    return render_template('note.html',uid=uid)
+        contents = note.contents
+    return render_template('latest.html',contents=contents)
 
-
-@app.route('/create', methods=['GET', 'POST'])
-@login_required
+@app.route('/note/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'GET':
         return render_template('edit.html')
@@ -40,6 +38,11 @@ def create():
             user_id = get_user_id()
             user = User.query_by_id(id=user_id)
             Note.addNote(user_id=user_id, contents=contents)
-            return redirect(url_for('display',name=user.username))
+            note = Note.display_latest(user_id=user_id)
+            if user.displayid == '':
+                uid = user.id
+            else:
+                uid = user.displayid
+            return render_template('post.html',contents=note.contents)
     else:
         return redirect(url_for('create'))

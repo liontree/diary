@@ -10,40 +10,21 @@
     </head>
     <body>
         <div class="newtop">
-            {% if uid and current_user.is_authenticated() %}
-            <a href="" class="setting">设置</a>
-            <a href="{{ url_for('display',uid=uid) }}" class="mybook">我的书</a>
-            <span class="name">{{ current_user.username }}</span>
-            {% else %}
+            {% block newtop %}
                 <span class="name">为自己的生活写一本书</span>
-            {% endif %}
+            {% endblock %}
         </div>
         <div class="header header-logged-out">
             {% block header %}
                 <div class="container clearfix">
                     <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/titlelogo.png"/></a>
-                    {% if uid and current_user.is_authenticated() %}
-                        <a href='/' class="logout">logout</a>
-                        <a href='{{ url_for('create') }}' class="create">create</a>
-                    {% else %}
-                        <a href='/latest' class="signinButton" >login</a>
-                        <a href='/register' class="signupButton"> sign up for free</a>
-                    {% endif %}
+                        <a href='{{ url_for('login') }}' class="signinButton" >login</a>
+                        <a href='{{ url_for('register')}}' class="signupButton"> sign up for free</a>
                 </div>
             {% endblock %}
         </div>
             <div class="container clearfix">
             {% block content %}
-                {% if uid %}
-                <div>
-                    {% if contents != None %}
-                    <p style="margin:20px;font-size:13px;color:#575B5D">{{ contents }}</p>
-                    {% else %}
-                    <p class="begin">
-                    这里还没有记录&nbsp;现在<a href="/create">开始</a>？</p>
-                    {% endif %}
-                </div>
-                {% else %}
                 <div class="contentintro">
                     <img src="../static/img/subway.png" class="firstleft"></img>
                     <p class="firstright">
@@ -96,11 +77,9 @@
                     它会给你带来惊喜^_^
                     </p>
                 </div>
-                {% endif %}
             {% endblock %}
             </div>
             <div id="footer">
-            {% block footer %}
                 <div class="about">
                 </div>
                 <div class="container clearfix">
@@ -168,7 +147,6 @@
                      . All rights reserved.
                     </p>
                 </div>
-            {% endblock %}
             </div>
     </body>
 </html>
