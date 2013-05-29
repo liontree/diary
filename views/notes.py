@@ -5,7 +5,7 @@ from flask import render_template, request, flash, redirect, url_for, session
 from lemonbook.models.note_models import Note
 from lemonbook.models.user_models import User
 from lemonbook.forms.noteForm import EditForm
-from lemonbook.functionlib.flask_login import login_required
+from lemonbook.common.flask_login import login_required,current_user
 
 
 def get_user_id():
@@ -39,10 +39,6 @@ def create():
             user = User.query_by_id(id=user_id)
             Note.addNote(user_id=user_id, contents=contents)
             note = Note.display_latest(user_id=user_id)
-            if user.displayid == '':
-                uid = user.id
-            else:
-                uid = user.displayid
             return render_template('post.html',contents=note.contents)
     else:
         return redirect(url_for('create'))

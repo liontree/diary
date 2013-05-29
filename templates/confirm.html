@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}欢迎注册{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    a {
+        text-decoration:none;
+        color:#4183C4;
+    }
+    a:hover{
+        text-decoration:none;
+        color:#8C979F;
+    }
+</style>
+{% endblock %}
+{% block header %}
+<div class="container clearfix">
+    <img  class="header-logo-wordmark" border="0" src="../static/img/titlelogo.png"/>
+</div>
+{% endblock %}
+{% block content %}
+<p style="font-size:30px;color:#8C979F;margin:80px 210px 0">Thanks for registering Lemonbook!</p>
+<br/> 
+<p style="font-size:18px;color:#8C979F;margin:0 85px 60px">
+An email for confirming has been sent to your mailbox, now 
+<a href="{{ domail }}">go to</a> it to complete registration ?
+</p>
+{% endblock %}

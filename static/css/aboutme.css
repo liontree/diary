@@ -36,6 +36,7 @@
 .wrap {
     background-color: #F2FBF2;
     display: block;
+    margin:10px 0 0;
 }
 .aside {
     color: #666666;

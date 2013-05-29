@@ -11,10 +11,10 @@ def base():
 def welcome():
     return render_template('welcome.html')
 
-@app.route('/aboutme')
+@app.route('/about/aboutme')
 def aboutme():
     return render_template('aboutme.html')
 
-@app.route('/app')
+@app.route('/about/app')
 def app():
     return render_template('app.html')

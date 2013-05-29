@@ -5,10 +5,11 @@ from flask import render_template, request, flash, redirect, url_for
 from lemonbook.models.user_models import User
 from lemonbook.models.note_models import Note
 from lemonbook.forms.userForm import LoginForm, RegisterForm
-from lemonbook.functionlib.flask_login import LoginManager,current_user,login_required,login_user,logout_user,confirm_login,fresh_login_required
-from lemonbook.functionlib.secure import securepw,checkpassword
-from lemonbook.functionlib.sendmail import send_mail
+from lemonbook.common.flask_login import LoginManager,current_user,login_required,login_user,logout_user,confirm_login,fresh_login_required
+from lemonbook.common.secure import securepw,checkpassword
+from lemonbook.common.sendmail import *
 from notes import get_user_id
+from lemonbook.config import MAIL_USERNAME
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -57,14 +58,19 @@ def register():
             if user is None:
                 if displayid == '':
                     User.addAccount(email=email, password=password, username=username)
-                    new_user = User.query_by_email(email=email)
-                    uid = new_user.id
+                    send_mail(MAIL_USERNAME, email, "Thanks for registering",success_msg%username)
                 elif User.query_by_displayid(displayid=displayid) == True:
                     User.addAccount(email=email, password=password, username=username, displayid=displayid)
-                    uid = displayid
+                    send_mail(MAIL_USERNAME, email, "Thanks for registering",success_msg%username)
                 else:
                     flash(u"已经有人抢先注册了")
-                return redirect(url_for('welcome'))
+                    return redirect(url_for('register'))
+                domail = email.split('@')[1]
+                if domail == "gmail.com":
+                    domail = "http://mail.google.com/"
+                else:
+                    domail = "http://mail."+email.split('@')[1]+"/"
+                return render_template('confirm.html',domail=domail)
             else:
                 flash(u"该邮箱已经被注册")
                 return redirect(url_for('register'))
@@ -73,12 +79,3 @@ def register():
     else:
         return redirect(url_for('register'))
 
-
-@app.route('/settings', methods=['GET','POST'])
-def setting():
-    if request.method == 'GET':
-        return render_template('settings.html')
-    elif request.method == 'POST':
-        pass
-    else:
-        pass

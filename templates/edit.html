@@ -9,6 +9,12 @@
     <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/titlelogo.png"/></a>
 </div>
 {% endblock %}
+{% block newtop %}
+<a href="{{ url_for('logout') }}" class="out">退出</a>
+<a href="" class="setting">设置</a>
+<a href="" class="topcreate">我的书</a>
+<span class="name">{{ current_user.username }}</span>
+{% endblock %}
 {% block content %}
 <div id="content">
     <p style="font-size:24px;">添加随笔</p><br/>

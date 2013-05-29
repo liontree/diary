@@ -2,7 +2,7 @@
 
 
 from lemonbook.extensions import db
-from lemonbook.functionlib.flask_login import UserMixin, AnonymousUser
+from lemonbook.common.flask_login import UserMixin, AnonymousUser
 
 
 class User(db.Model, UserMixin):

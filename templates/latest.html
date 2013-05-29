@@ -2,6 +2,16 @@
 {% block title %}最新记录{% endblock %}
 {% block head %}
 {{ super() }}
+<style type="text/css">
+    a {
+        text-decoration:none;
+        color:#4183C4;
+    }
+    a:hover{
+        text-decoration:none;
+        color:#8C979F;
+    }
+</style>
 {% endblock %}
 {% block header %}
 <div class="container clearfix">
@@ -15,5 +25,10 @@
 <span class="name">{{ current_user.username }}</span>
 {% endblock %}
 {% block content %}
+{% if contents %}
 <pre style="margin:20px;font-size:13px;color:#575B5D">{{ contents }}</pre>
+{% else %}
+<p style="font-size:30px;color:#8C979F;margin:100px 240px">
+这里还没有记录，现在<a href="{{ url_for('create') }}">开始</a>吧？</p>
+{% endif %}
 {% endblock %}

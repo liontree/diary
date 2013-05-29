@@ -20,13 +20,6 @@
                 <div class="item">
                     <label>帐号</label>
                     <input style="color: rgb(204, 204, 204);" id="email" name="email" class="basic-input" maxlength="64" value="邮箱/手机号" tabindex="1" type="text">
-                    {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                            {% for message in messages %}
-                                <span class="error-tip">{{ message }}</span>
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %}
                 </div>
                 <div class="item">
                     <label>密码</label>
@@ -56,11 +49,11 @@
         <ul id="side-nav" class="aside">
             <li>
                 > 还没有柠檬帐号？
-                <a href="/register" rel="nofollow">立即注册</a>
+                <a href="{{ url_for('register') }}" rel="nofollow">立即注册</a>
             </li>
             <li>
                 > 
-                <a href="/about/app" target="_blank">点击下载柠檬移动应用</a>
+                <a href="{{ url_for('app') }}" target="_blank">点击下载柠檬移动应用</a>
         </ul>
     </div>
 	<script>

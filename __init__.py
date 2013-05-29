@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from flask import Flask
-from lemonbook.functionlib.flask_login import LoginManager
+from lemonbook.common.flask_login import LoginManager
 
 # --create app--
 app = Flask(__name__)
