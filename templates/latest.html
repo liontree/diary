@@ -1,7 +1,11 @@
+<!doctype html>
 {% extends 'base.html' %}
 {% block title %}最新记录{% endblock %}
 {% block head %}
 {{ super() }}
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 <style type="text/css">
     a {
         text-decoration:none;
@@ -11,7 +15,19 @@
         text-decoration:none;
         color:#8C979F;
     }
+    pre {
+        font-size:13px;
+        color:#575B5D;
+        white-space: pre-wrap;
+        width: 40em;
+        width: 70ch;
+    }
 </style>
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+    });
+</script>
 {% endblock %}
 {% block header %}
 <div class="container clearfix">
@@ -26,7 +42,10 @@
 {% endblock %}
 {% block content %}
 {% if contents %}
-<pre style="margin:20px;font-size:13px;color:#575B5D">{{ contents }}</pre>
+<div style="float:right; width:600px; height:800px;overflow:hidden;margin:40px 10px 40px 0">
+<pre>{{ contents }}</pre>
+</div>
+<p style="float:left; margin:40px 0">Date: <input type="text" id="datepicker" /></p>
 {% else %}
 <p style="font-size:30px;color:#8C979F;margin:100px 240px">
 这里还没有记录，现在<a href="{{ url_for('create') }}">开始</a>吧？</p>

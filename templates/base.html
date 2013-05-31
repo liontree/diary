@@ -18,64 +18,28 @@
             {% block header %}
                 <div class="container clearfix">
                     <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/titlelogo.png"/></a>
-                        <a href='{{ url_for('login') }}' class="signinButton" >login</a>
-                        <a href='{{ url_for('register')}}' class="signupButton"> sign up for free</a>
                 </div>
             {% endblock %}
         </div>
             <div class="container clearfix">
             {% block content %}
                 <div class="contentintro">
-                    <img src="../static/img/subway.png" class="firstleft"></img>
-                    <p class="firstright">
-                    有时候生活像碎片一样<br/>
-                    零零散散<br/>
-                    看似忙碌的节奏<br/>
-                    却乏善可陈<br/>
-                    苍白，无力<br/>
-                    试着改变，却不知为何<br/>
-                    生活依旧是单调的颜色..<br/><br/>
-                    生活的轨迹似乎一直在重复<br/>
-                    没有出口<br/>
+                    <div class="firstleft">
+                    <p style="font-size:43px;color:#595757">Thinking,writing,<br/>make life wonderful.</p>
+                    <p style="font-size:16px;color:#8C979F">
+                    lemonbook now is a website based on flask. You can write dowm your mood or things happened around you.
+                    <br/>Please enjoy it.
+                    </div>
+                    <img src="../static/img/balloon.png" class="firstright"></img>
                 </div>
                 <div class="contentintro">
-                    <p class="secondleft">
-                    很多瞬间<br/>
-                    还来不及回味<br/>
-                    就已消逝不见<br/>
-                    很多计划<br/>
-                    还来不及执行<br/>
-                    就已被搁浅<br/>
-                    很多理想<br/>
-                    还来不及实现<br/>
-                    就已淡出生活..<br/>
-                    </p>
-                    <img src="../static/img/balloon.png" class="secondright"></img>
-                </div>
-                <div class="contentintro">
-                    <img src="../static/img/taste.png" class="thirdleft"></img>
-                    <p class="thirdright">
-                    若问自己<br/>
-                    生活真如感受到的那般么<br/>
-                    若细细品味<br/>
-                    发现其实美好的事并不匮乏<br/>
-                    只因那凌乱的步伐和浮躁的心<br/>
-                    冲淡了一切一切..<br/>
-                    </p>
-                </div>
-                <div class="fourthimg">
-                    <p class="fourthleft">
-                    为自己的生活写一本书吧<br/>
-                    那些美好的瞬间本不该轻易消逝<br/>
-                    <br/>生活<br/>
-                    本该比任何小说任何剧情精彩..<br/>
-                    </p>
-                    <p class="fourthright">
-                    现在<a href="{{ url_for('register') }}">开始</a>,
-                    记录下那些或美好或忧伤或兴奋或失意或酷或二的瞬间<br/>
-                    也许在某一天<br/>
-                    它会给你带来惊喜^_^
-                    </p>
+                    <img src="../static/img/bookback_mini.jpg" class="secondleft"></img>
+                    <p class="secondright">Maybe Lemonbook can bring you pleasure.<br/>
+                    if you want to have a try,<br/><br/>
+                    please
+                    <a href='{{ url_for('login') }}' class="signinButton" >login</a>
+                    <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or
+                    <a href='{{ url_for('register')}}' class="signupButton"> sign up for free</a>
                 </div>
             {% endblock %}
             </div>
