@@ -37,8 +37,8 @@
             </div>
             <div class="item">
                 <label>用户ID</label>
-                <input id="displayid" name="displayid" class="basic-input" maxlength="16" tabindex="4" type="text"/>
-                &nbsp; <span style="color:#008500">用户ID唯一，一旦设置不可更改</span>
+                <input id="displayid" name="displayid" class="basic-input" maxlength="16" tabindex="4" type="text" />
+                <span style="color:#008500;margin-left:10px; visibility:hidden" id="prompt">用户ID唯一，设置后不可更改</span>
             </div>
             <div class="item">
                 <p class="agreement">
@@ -70,7 +70,7 @@
     ;(function(doc){
 	var $ = function(id) { return doc.getElementById(id); };
 	var placeholder = '邮箱/手机号';
-	var email = $('email'), password = $('password'), username = $('username'), capcha = $('captcha_field');
+	var email = $('email'), password = $('password'), username = $('username'), displayid = $('displayid');
 	email.onfocus = function(){
 	if ( this.value == placeholder ) {
 	    this.value = '';
@@ -82,16 +82,23 @@
 	    this.value = placeholder;
 	    this.style.color = '#ccc';
 	}
-    	};
+    };
 
+    var info = document.getElementById('prompt');
+    displayid.onfocus = function(){
+        info.style.visibility = "visible";
+    };
+    displayid.onblur = function(){
+        info.style.visibility = "hidden";
+    };
 	if (email.value == placeholder) {
 	email.style.color = '#ccc';
 	} else if(password.value === '') {
 	password.focus();
 	} else if(username.value === '') {
 	username.focus();
-	} else if (capcha) {
-	capcha.focus();
+	} else if (displayid) {
+	displayid.focus();
 	}
 
     })(document);
@@ -102,7 +109,7 @@
 	var error = 0,
 	account = frm.elements['email'],
 	passwd = frm.elements['password'],
-        username = frm.elements['username'],
+    username = frm.elements['username'],
 	defaultError = document.getElementById('item-error');
 
 	account_value = trim(account.value);
@@ -135,7 +142,7 @@
 	}
 	return !error;
     }
-
+    
     function displayError(el, msg) {
 	var err = document.getElementById(el.name + '_err');
 	if (!err) {

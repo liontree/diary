@@ -23,9 +23,11 @@ def login():
             user = User.query_by_email(email)
             if user is None:
                 flash(u'你的邮箱还没有被注册')
+                return redirect(url_for('login'))
             else:
                 if not checkpassword(password,user.password):
                     flash(u'密码不匹配')
+                    return redirect(url_for('login'))
                 else:
                     remember = request.form.get("remember", "no") == "yes"
                     login_user(user=user,remember=remember)
@@ -59,11 +61,11 @@ def register():
                 if displayid == '':
                     User.addAccount(email=email, password=password, username=username)
                     send_mail(MAIL_USERNAME, email, "Thanks for registering",success_msg%username)
-                elif User.query_by_displayid(displayid=displayid) == True:
+                elif User.query_by_displayid(displayid=displayid) is True:
                     User.addAccount(email=email, password=password, username=username, displayid=displayid)
                     send_mail(MAIL_USERNAME, email, "Thanks for registering",success_msg%username)
                 else:
-                    flash(u"已经有人抢先注册了")
+                    flash(u"已经有人抢先注册此ID了")
                     return redirect(url_for('register'))
                 domail = email.split('@')[1]
                 if domail == "gmail.com":
