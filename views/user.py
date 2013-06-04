@@ -10,6 +10,7 @@ from lemonbook.common.secure import securepw,checkpassword
 from lemonbook.common.sendmail import *
 from notes import get_user_id
 from lemonbook.config import MAIL_USERNAME
+from threading import Thread
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -60,10 +61,10 @@ def register():
             if user is None:
                 if displayid == '':
                     User.addAccount(email=email, password=password, username=username)
-                    send_mail(MAIL_USERNAME, email, "Thanks for registering",success_msg%username)
+                    Thread(target=send_mail, args=(MAIL_USERNAME,email,"Thanks for registering",success_msg%username)).start()
                 elif User.query_by_displayid(displayid=displayid) is True:
                     User.addAccount(email=email, password=password, username=username, displayid=displayid)
-                    send_mail(MAIL_USERNAME, email, "Thanks for registering",success_msg%username)
+                    Thread(target=send_mail, args=(MAIL_USERNAME,email,"Thanks for registering",success_msg%username)).start()
                 else:
                     flash(u"已经有人抢先注册此ID了")
                     return redirect(url_for('register'))
