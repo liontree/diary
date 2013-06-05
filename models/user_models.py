@@ -52,6 +52,17 @@ class User(db.Model, UserMixin):
         newpeople = User(email=email, password=password, username=username, status=status, displayid=displayid)
         db.session.add(newpeople)
         db.session.commit()
+    
+    @classmethod
+    def changepw(cls, email, password):
+        user = User.query.filter_by(email=email).first()
+        user.query.update({'password': password})
+
+    @classmethod
+    def changeusername(cls, email, username):
+        user = User.query.filter_by(email=email).first()
+        user.query.update({'username':username})
+
 
 class Anonymous(AnonymousUser):
     name = u"Anonymous"
