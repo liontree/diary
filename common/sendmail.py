@@ -27,6 +27,14 @@ success_msg='''\
 </html>
 '''
 
+pw_msg='''\
+        Hi, %s<br/>
+        Your password is %s<br/><br/><br/>
+        <p>
+        This email is sending from system automatically, please do not reply.
+        <br/>Thanks
+        </p>
+'''
 def send_mail(sender,receiver,title,content):
     msg = MIMEMultipart()
     msg['From'] = sender
