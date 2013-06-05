@@ -12,7 +12,14 @@
     <body>
         <div class="newtop">
             {% block newtop %}
-                <span class="name">为自己的生活写一本书</span>
+                {% if current_user.is_authenticated() %}
+                    <a href="{{ url_for('logout') }}" class="out">退出</a>
+                    <a href="{{ url_for('setting') }}" class="setting">设置</a>
+                    <a href="{{ url_for('create') }}" class="topcreate">创作</a>
+                    <span class="name">{{ current_user.username }}</span>
+                {% else %}
+                    <span class="name">为自己的生活写一本书</span>
+                {% endif %}
             {% endblock %}
         </div>
         <div class="header header-logged-out">
