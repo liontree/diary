@@ -82,3 +82,66 @@ def register():
     else:
         return redirect(url_for('register'))
 
+@app.route('/findpw',methods=['GET','POST'])
+def findpw():
+    if request.method == 'GET':
+        return render_template('findpw.html')
+    elif request.method == 'POST' and 'email' in request.form:
+        email = request.form['email'].strip()
+        if email == '':
+            flash(u"请输入邮箱")
+            return redirect(url_for('findpw'))
+        else:
+            user = User.query_by_email(email=email)
+            if user is None:
+                flash(u'该邮箱没有被注册')
+                return redirect(url_for('findpw'))
+            else:
+                Thread(target=send_mail, args=(MAIL_USERNAME,email,"find password",pw_msg%(user.username,user.password))).start()
+                return render_template('confirm.html',email=email)
+    else:
+        return render_template('findpw.html')
+
+@app.route('/reset', methods=['GET','POST'])
+def reset():
+    if request.method == 'GET':
+        return render_template('reset.html')
+    elif request.method == 'POST' and 'password' in request.form:
+        email = request.form['email'].strip()
+        password = request.form['password'].strip()
+        user = User.query_by_email(email=email)
+        if user is None:
+            flash(u"该邮箱不存在啊啊啊")
+            return redirect(url_for('reset'))
+        else:
+            if password == '':
+                flash(u"请输入新密码")
+                return redirect(url_for('reset'))
+            else:
+                password = securepw(password)
+                User.changepw(email=email, password=password)
+                return redirect(url_for('login'))
+    else:
+        return redirect(url_for('reset'))
+
+@app.route('/settings', methods=['GET','POST'])
+@login_required
+def setting():
+    if request.method == 'GET':
+        return render_template('settings.html')
+    elif request.method == 'POST':
+        password_old = request.form['password_old'].strip()
+        password_new = request.form['password_new'].strip()
+        username_new = request.form['username_new'].strip()
+        if password_old and password_new or username_new:
+            pass
+        if not checkpassword(password_old,current_user.password):
+            flash(u'请重新输入原始密码')
+            return redirect(url_for('setting'))
+        else:
+            password_new = securepw(password_new)
+            User.changepw(email=current_user.email, password=password_new)
+            User.changeusername(email=current_user.email, username=username_new)
+            return redirect(url_for('login'))
+    else:
+        return render_template('settings.html')
