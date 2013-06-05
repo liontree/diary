@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}密码重置{% endblock %}
+{% block head %}
+{{ super() }}
+<link type="text/css" rel="stylesheet" media="screen" href="../static/css/signin.css"/>
+{% endblock %}
+{% block content %}
+<div id="content">
+    <p style="font-size:24px;">密码重置</p>
+    <div class="article">
+        <form action="" method="post">
+            <div class="item">
+                <label>您的邮箱</label>
+                <input id="email" name="email" type="text" maxlength="64" class="basic-input">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <span class="error-tip">{{ message }}</span>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="item">
+                <label>新的密码</label>
+                <input id="password" name="password" type="password" maxlength="16" class="basic-input">
+            </div>
+            <div class="item">
+                <input type="submit" class="login" value="重 置">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}设置{% endblock %}
+{% block head %}
+{{ super() }}
+<link type="text/css" rel="stylesheet" media="screen" href="../static/css/signin.css"/>
+{% endblock %}
+{% block content %}
+<div id="content">
+    <p style="font-size:24px;">个人设置</p>
+    <div class="article">
+        <form method="post" action="">
+            <div class="item">
+                <label>邮箱</label>
+                &nbsp;<label style="font-size:12px">{{ current_user.email }}</label>
+            </div>
+            <div class="item">
+                <label>旧密码</label>
+                <input id="password_old" name="password_old" class="basic-input" maxlength="18" type="password">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <span class="error-tip">{{ message }}</span>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="item">
+                <label>新密码</label>
+                <input id="password_new" name="password_new" class="basic-input" maxlength="18" type="password">
+            </div>
+            <div class="item">
+                <label>昵称</label>
+                <input value="{{ current_user.username }}" style="color: rgb(204, 204, 204);" id="username" name="username_new" class="basic-input" type="text">
+            </div>
+            <div class="item">
+                <input value="提 交" name="change" class="login" type="submit">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
