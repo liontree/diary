@@ -1,3 +1,7 @@
 local_config.py
-test_config.py
+test/test_config.*
 *.pyc
+views/*.pyc
+models/*.pyc
+common/*.pyc
+forms/*.pyc
