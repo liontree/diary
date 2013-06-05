@@ -15,11 +15,9 @@
         <p style="font-size:24px;">欢迎登录</p>
         <div class="article">
             <form id="lzform" name="lzform" method="post" action="" onsubmit="return validateForm(this);">
-                <input name="source" value="simple" type="hidden">
-                <input name="redir" value="" type="hidden">
                 <div class="item">
                     <label>帐号</label>
-                    <input style="color: rgb(204, 204, 204);" id="email" name="email" class="basic-input" maxlength="64" value="邮箱/手机号" tabindex="1" type="text">
+                    <input style="color: rgb(204, 204, 204);" id="email" name="email" class="basic-input" maxlength="64" value="邮箱" tabindex="1" type="text">
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}
@@ -59,7 +57,7 @@
 	<script>
 	    ;(function(doc){
 		var $ = function(id) { return doc.getElementById(id); };
-		var placeholder = '邮箱/手机号';
+		var placeholder = '邮箱';
 		var email = $('email'), password = $('password'), capcha = $('captcha_field');
 		email.onfocus = function(){
 		if ( this.value == placeholder ) {
