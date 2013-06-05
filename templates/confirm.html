@@ -15,14 +15,23 @@
 {% endblock %}
 {% block header %}
 <div class="container clearfix">
-    <img  class="header-logo-wordmark" border="0" src="../static/img/titlelogo.png"/>
+    <a href="/"><img  class="header-logo-wordmark" border="0" src="../static/img/titlelogo.png"/></a>
 </div>
 {% endblock %}
 {% block content %}
+{% if domail %}
 <p style="font-size:30px;color:#8C979F;margin:80px 210px 0">Thanks for registering Lemonbook!</p>
 <br/> 
 <p style="font-size:18px;color:#8C979F;margin:0 85px 60px">
 An email for confirming has been sent to your mailbox, now 
 <a href="{{ domail }}">go to</a> it to complete registration ?
 </p>
+{% elif email %}
+<p style="font-size:30px;color:#8C979F;margin:80px 270px 0">Help to find password</p><br/>
+<p style="font-size:18px;color:#8C979F;margin:0 70px 60px">
+Your password has been sent to {{ email }}, you can go there to find it, or you can <a href="">reset</a> it.
+</p>
+{% else %}
+other..
+{% endif %}
 {% endblock %}

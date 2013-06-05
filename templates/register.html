@@ -30,6 +30,7 @@
             <div class="item">
                 <label>密码</label>
                 <input id="password" name="password" class="basic-input" maxlength="16" tabindex="2" type="password"/>
+                <span style="color:#008500;margin-left:10px; visibility:hidden" id="pw">6-18位字符,包括数字，字母，下划线
             </div>
             <div class="item">
                 <label>昵称</label>
@@ -91,6 +92,14 @@
     displayid.onblur = function(){
         info.style.visibility = "hidden";
     };
+    var pwinfo = document.getElementById('pw');
+    password.onfocus = function(){
+        pwinfo.style.visibility = "visible";
+    };
+    password.onblur = function(){
+        pwinfo.style.visibility = "hidden";
+    };
+
 	if (email.value == placeholder) {
 	email.style.color = '#ccc';
 	} else if(password.value === '') {

@@ -18,12 +18,6 @@
     <img  class="header-logo-wordmark" border="0" src="../static/img/titlelogo.png"/>
 </div>
 {% endblock %}
-{% block newtop %}
-<a href="{{ url_for('logout') }}" class="out">退出</a>
-<a href="" class="setting">设置</a>
-<a href="{{ url_for('create') }}" class="topcreate">创作</a>
-<span class="name">{{ current_user.username }}</span>
-{% endblock %}
 {% block content %}
 <pre>{{ contents }}</pre>
 {% endblock %}
