@@ -59,6 +59,14 @@ class CommonTestCase(unittest.TestCase):
     def test_secure(self):
         sec = securepw(PASSWORD)
         self.assertEqual(len(sec),32)
+    
+    import hashlib
+    def test_checkpassword(self):
+        password = "123456"
+        sec1 = hashlib.md5(password).hexdigest()
+        sec2 = hashlib.md5(PASSWORD).hexdigest()
+        self.assertEqual(sec1,sec2)
+        self.assertTrue(checkpassword(password,sec2))
 
 if __name__ == '__main__':
     unittest.main()
