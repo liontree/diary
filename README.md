@@ -9,8 +9,7 @@ You can write dowm your mood or things happened around you everyday by using it.
 <li>fork it</li>
 <li>git pull origin master</li>
 <li>add your own configuration parameters in localconfig</li>
-<li>import tables to you own database</li>
-<p>For example : "mysql -uroot -proot DATABASE < XX.sql"</p>
+<li>import tables to you own database using db.sql</li>
 <li>execute run.py</li>
 </ul>
 
