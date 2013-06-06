@@ -55,6 +55,7 @@ CREATE TABLE `note` (
   `user_id` int(11) DEFAULT NULL,
   `contents` text NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='account info';
 /*!40101 SET character_set_client = @saved_cs_client */;

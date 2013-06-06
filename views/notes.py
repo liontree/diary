@@ -6,7 +6,7 @@ from lemonbook.models.note_models import Note
 from lemonbook.models.user_models import User
 from lemonbook.forms.noteForm import EditForm
 from lemonbook.common.flask_login import login_required,current_user
-
+from datetime import datetime
 
 def get_user_id():
     if session.has_key('user_id'):
@@ -37,7 +37,8 @@ def create():
         else:
             user_id = get_user_id()
             user = User.query_by_id(id=user_id)
-            Note.addNote(user_id=user_id, contents=contents)
+            date = datetime.now().strftime('/%m/%d/%Y')
+            Note.addNote(user_id=user_id, contents=contents, date=date)
             note = Note.display_latest(user_id=user_id)
             return render_template('post.html',contents=note.contents)
     else:
