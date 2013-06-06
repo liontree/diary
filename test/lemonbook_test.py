@@ -4,6 +4,7 @@ from lemonbook.models.user_models import *
 from lemonbook.models.note_models import *
 from lemonbook.extensions import db
 
+from lemonbook.common.secure import *
 from test_config import *
 
 class ModelTestCase(unittest.TestCase):
@@ -48,6 +49,16 @@ class ModelAddTestCase(unittest.TestCase):
         User.addAccount(EMAIL,PASSWORD,USERNAME,STATUS,DISPLAYID_E)
         user = User.query.filter_by(email=EMAIL).first()
         self.assertIsNotNone(user)
+
+class CommonTestCase(unittest.TestCase):
+    def setUp(self):
+        pass
+    def testDown(self):
+        pass
+
+    def test_secure(self):
+        sec = securepw(PASSWORD)
+        self.assertEqual(len(sec),32)
 
 if __name__ == '__main__':
     unittest.main()
