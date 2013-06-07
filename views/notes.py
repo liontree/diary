@@ -37,7 +37,8 @@ def create():
         else:
             user_id = get_user_id()
             user = User.query_by_id(id=user_id)
-            date = datetime.now().strftime('/%m/%d/%Y')
+            date = datetime.now().strftime('%m/%d/%Y')
+            #print "date is %s" %date
             Note.addNote(user_id=user_id, contents=contents, date=date)
             note = Note.display_latest(user_id=user_id)
             return render_template('post.html',contents=note.contents)

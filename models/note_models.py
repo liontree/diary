@@ -8,7 +8,7 @@ class Note(db.Model):
     user_id = db.Column('user_id', db.Integer, nullable=False)
     contents = db.Column('contents', db.Text, nullable=False)
     create_time = db.Column('create_time', db.TIMESTAMP, nullable=False)
-    date=db.Column('date',db.DATE, nullable=False)
+    date=db.Column('date',db.Text, nullable=False)
 
     def __init__(self,user_id,contents,date):
         self.user_id = user_id
@@ -33,4 +33,10 @@ class Note(db.Model):
     def query_by_userid(cls, user_id):
         notes = Note.query.filter_by(user_id=user_id).all()
         #type of notes : list
+        return notes
+
+    @classmethod
+    def query_by_date(cls, user_id, date):
+        ''' select count(id) from note where user_id=XX and date=XX '''
+        notes = Note.query.filter_by(user_id=user_id,date=date).all()
         return notes
