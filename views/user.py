@@ -81,7 +81,7 @@ def register():
             return redirect(url_for('register'))
     else:
         return redirect(url_for('register'))
-
+'''
 @app.route('/findpw',methods=['GET','POST'])
 def findpw():
     if request.method == 'GET':
@@ -101,6 +101,7 @@ def findpw():
                 return render_template('confirm.html',email=email)
     else:
         return render_template('findpw.html')
+'''
 
 @app.route('/reset', methods=['GET','POST'])
 def reset():

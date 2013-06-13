@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}按日期查询{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% if contents %}
+    {% for content in contents %}
+        <li>
+        {{ content }}   
+        </li>
+    {% endfor %}
+{% else %}
+<p>您查询的日期没有记录</p>
+{% endif %}
+{% endblock %}
