@@ -18,23 +18,21 @@ def get_user_id():
 def date(id,date):
     user_id = get_user_id()
     notes = Note.query_by_date(user_id=user_id, date=date)
-    #print "date is %s"%date
-    #print notes
     if notes is None:
         contents = None
     else:
-        contents = []
+        contents = {}
         for i in range(len(notes)):
-            contents.append(notes[i].contents)
+            #contents.append(notes[i].contents)
+            contents[notes[i].create_time]=notes[i].contents
+        print contents
     return render_template('date.html',contents=contents)
 
 @app.route('/latest', methods=['GET','POST'])
 @login_required
 def latest():
     user_id = get_user_id()
-    print "user_id is %d"%user_id
     if request.method == 'GET':
-        #user_id = get_user_id()
         note = Note.display_latest(user_id=user_id)
         if note is None:
             contents = None
@@ -44,16 +42,6 @@ def latest():
     elif request.method == 'POST':
         date = request.form['date'].strip()
         date = date.replace('/','')
-
-        '''
-        notes = Note.query_by_date(user_id=user_id, date=date)
-        if notes is None:
-            contents = None
-        else:
-            contents = []
-            for i in range(len(notes)):
-                contents.append(notes[i].contents)
-        '''
         return redirect(url_for('date', id=user_id,date=date))
 
 @app.route('/note/create', methods=['GET', 'POST'])
@@ -68,8 +56,7 @@ def create():
         else:
             user_id = get_user_id()
             user = User.query_by_id(id=user_id)
-            date = datetime.now().strftime('%m/%d/%Y')
-            #print "date is %s" %date
+            date = datetime.now().strftime('%m%d%Y')
             Note.addNote(user_id=user_id, contents=contents, date=date)
             note = Note.display_latest(user_id=user_id)
             return render_template('post.html',contents=note.contents)
