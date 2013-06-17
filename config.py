@@ -10,6 +10,8 @@ MAIL_HOST=''
 MAIL_USERNAME=''
 MAIL_PASSWORD=''
 
+UPLOAD_FOLDER=''
+ALLOWED_EXTENSIONS=''
 #import local_config
 try:
     from lemonbook.local_config import *

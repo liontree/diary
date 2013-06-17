@@ -13,11 +13,11 @@
 <div id="content">
     <p style="font-size:24px;">添加随笔</p><br/>
     <div class="article">
-        <form id="form_note" method="post" action="">
+        <form id="form_note" method="post enctype=multipart/form-data" action="">
             <div class="row note-text">
 		        <ul class="control-panel">
-		            <li class="image-btn">
-			            <a class="image" title="插入图片" href="#image">图片</a>
+                    <li class="image-btn">
+                        <input type="file" name="file" class="image"/>
 		            </li>
 		            <li class="link-btn">
 			            <a class="link" title="插入链接" href="#link">链接</a>

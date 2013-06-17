@@ -20,12 +20,12 @@
     .value {
         margin:60px 0;
     }
-    a {
+    .details {
         color: #4183C4;
         text-decoration: none;
         margin:5px 208px;
     }
-    a:hover{
+    .details:hover{
         color:#FF8700;
         text-decoration: none;
     }
@@ -37,7 +37,7 @@
     <dt class="key">{{ key }}</dt>
     <dd class="value">
         <pre>{{ value }}</pre>
-    <a href="">点击查看详情</a>
+    <a class="details" href="">点击查看详情</a>
     </dd>
     {% endfor %}
 <script >

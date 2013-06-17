@@ -1,5 +1,7 @@
 # -*-coding:utf-8-*-
 
+import os
+from werkzeug import secure_filename
 from lemonbook import app
 from flask import render_template, request, flash, redirect, url_for, session
 from lemonbook.models.note_models import Note
@@ -7,11 +9,17 @@ from lemonbook.models.user_models import User
 from lemonbook.forms.noteForm import EditForm
 from lemonbook.common.flask_login import login_required,current_user
 from datetime import datetime
+from lemonbook.config import UPLOAD_FOLDER,ALLOWED_EXTENSIONS
 
 def get_user_id():
     if session.has_key('user_id'):
         return session['user_id']
     return 0
+
+def allowed_file(filename):
+    return '.' in filename and \
+            filename.split('.')[1] in ALLOWED_EXTENSIONS
+ 
 
 @app.route('/<id>/<date>')
 @login_required
@@ -50,6 +58,10 @@ def create():
         return render_template('edit.html')
     elif request.method == 'POST' and 'contents' in request.form:
         contents = request.form['contents'].strip()
+        file = request.files['file']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         if contents == '':
             flash(u"提交内容不能为空")
             return redirect(url_for('create'))
