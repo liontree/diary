@@ -58,10 +58,12 @@ def create():
         return render_template('edit.html')
     elif request.method == 'POST' and 'contents' in request.form:
         contents = request.form['contents'].strip()
+        '''
         file = request.files['file']
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        '''
         if contents == '':
             flash(u"提交内容不能为空")
             return redirect(url_for('create'))
