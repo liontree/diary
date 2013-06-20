@@ -1,5 +1,6 @@
 local_config.py
 test/test_config.*
+test/user_test_config.*
 *.pyc
 views/*.pyc
 models/*.pyc

@@ -1,3 +1,5 @@
+import os
+import tempfile
 import unittest
 from lemonbook import app
 from lemonbook.models.user_models import *
@@ -67,6 +69,35 @@ class CommonTestCase(unittest.TestCase):
         sec2 = hashlib.md5(PASSWORD).hexdigest()
         self.assertEqual(sec1,sec2)
         self.assertTrue(checkpassword(password,sec2))
+
+'''
+class userTest(unittest.TestCase):
+    def setUp(self):
+        #self.db_fd, app.config['DATABASE'] = tempfile.mkstemp()
+        app.config['TESTING'] = True
+        self.app = app.test_client()
+        
+    def tearDown(self):
+        pass
+
+    def login(self, email, password):
+        return self.app.post('/login',data=dict(
+            email = email,
+            password = password
+            ), follow_redirects=True)
+
+    def logout(self):
+        return self.app.get('/logout', follow_redirects=True)
+
+    #def test_login_logout(self):
+        
+            #rv : <class 'flask.wrappers.Response'>
+        
+        #rv = self.login(EMAIL_LOCAL, PASSWORD_LOCAL)
+
+'''
+
+
 
 if __name__ == '__main__':
     unittest.main()
