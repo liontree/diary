@@ -23,11 +23,11 @@ def login():
         if login_result.is_success is True:
             user = User.query_by_email(email)
             if user is None:
-                flash(u'你的邮箱还没有被注册')
+                flash(u'Your email has not been registered')
                 return redirect(url_for('login'))
             else:
                 if not checkpassword(password,user.password):
-                    flash(u'密码不匹配')
+                    flash(u'password does not match')
                     return redirect(url_for('login'))
                 else:
                     remember = request.form.get("remember", "no") == "yes"
@@ -66,7 +66,7 @@ def register():
                     User.addAccount(email=email, password=password, username=username, displayid=displayid)
                     Thread(target=send_mail, args=(MAIL_USERNAME,email,"Thanks for registering",success_msg%username)).start()
                 else:
-                    flash(u"已经有人抢先注册此ID了")
+                    flash(u"This ID has already been used by others")
                     return redirect(url_for('register'))
                 domail = email.split('@')[1]
                 if domail == "gmail.com":
@@ -75,7 +75,7 @@ def register():
                     domail = "http://mail."+email.split('@')[1]+"/"
                 return render_template('confirm.html',domail=domail)
             else:
-                flash(u"该邮箱已经被注册")
+                flash(u"The email has already been registered")
                 return redirect(url_for('register'))
         else:
             return redirect(url_for('register'))
@@ -112,11 +112,11 @@ def reset():
         password = request.form['password'].strip()
         user = User.query_by_email(email=email)
         if user is None:
-            flash(u"该邮箱不存在啊啊啊")
+            flash(u"The email does not exist")
             return redirect(url_for('reset'))
         else:
             if password == '':
-                flash(u"请输入新密码")
+                flash(u"Please input the new password")
                 return redirect(url_for('reset'))
             else:
                 password = securepw(password)
@@ -137,7 +137,7 @@ def setting():
         if password_old and password_new or username_new:
             pass
         if not checkpassword(password_old,current_user.password):
-            flash(u'请重新输入原始密码')
+            flash(u'Please re-enter the original password')
             return redirect(url_for('setting'))
         else:
             password_new = securepw(password_new)

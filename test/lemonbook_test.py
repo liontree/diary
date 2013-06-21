@@ -9,11 +9,14 @@ from lemonbook.extensions import db
 from lemonbook.common.secure import *
 from test_config import *
 
+from datetime import datetime
+
 class ModelTestCase(unittest.TestCase):
     def setUp(self):
         app.config['TESTING'] = True
         self.user = User(EMAIL,PASSWORD,USERNAME,STATUS,DISPLAYID_E)
-        self.note = Note(USER_ID, CONTENT)
+        date = datetime.now().strftime('%m%d%Y')
+        self.note = Note(USER_ID, CONTENT, date)
         db.session.add(self.user)
         db.session.add(self.note)
         db.session.commit()
