@@ -73,6 +73,13 @@
         <input type="text" id="datepicker" name="date"/>
         <input type="submit" class="select" value="查 询"/>
     </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <span style="color:#FE2617">{{ message }}</span>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 </div>
 {% else %}
 <p style="font-size:30px;color:#8C979F;margin:100px 240px">

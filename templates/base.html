@@ -5,7 +5,10 @@
         <meta charset="utf-8" />
         <meta name="description" content="为自己的生活写一本书。">
         <title>{% block title %}{% endblock %}</title>
+        <!--
         <link type="text/css" rel="stylesheet" media="screen" href="../static/css/base.css" />
+        -->
+        <link type="text/css" rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/base.css') }}" />
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
         {% endblock %}
     </head>
