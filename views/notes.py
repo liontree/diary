@@ -33,8 +33,7 @@ def date(id,date):
         for i in range(len(notes)):
             #contents.append(notes[i].contents)
             contents[notes[i].create_time]=notes[i].contents
-        print contents
-    return render_template('date.html',contents=contents)
+        return render_template('date.html',contents=contents)
 
 @app.route('/latest', methods=['GET','POST'])
 @login_required
@@ -49,8 +48,12 @@ def latest():
         return render_template('latest.html',contents=contents)
     elif request.method == 'POST':
         date = request.form['date'].strip()
-        date = date.replace('/','')
-        return redirect(url_for('date', id=user_id,date=date))
+        if date == '':
+            flash(u'select date please')
+            return redirect(url_for('latest'))
+        else:
+            date = date.replace('/','')
+            return redirect(url_for('date', id=user_id,date=date))
 
 @app.route('/note/create', methods=['GET', 'POST'])
 def create():
